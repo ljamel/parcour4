@@ -1,0 +1,9 @@
+RewriteEngine On
+
+AddType application/x-httpd-php .xml
+
+RewriteRule ^admin/ bootstrap.php?app=Backend [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.*)$ bootstrap.php?app=Frontend [QSA,L]

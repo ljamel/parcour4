@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<routes>
+  <route url="/Sources_TP_App/tp-app-poo/Web/admin/" module="News" action="index" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/admin/news-insert\.html" module="News" action="insert" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/admin/news-update-([0-9]+)\.html" module="News" action="update" vars="id" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/admin/news-delete-([0-9]+)\.html" module="News" action="delete" vars="id" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/admin/comment-update-([0-9]+)\.html" module="News" action="updateComment" vars="id" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/admin/comment-delete-([0-9]+)\.html" module="News" action="deleteComment" vars="id" />
+</routes>
+
