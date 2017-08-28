@@ -56,12 +56,19 @@ li a:hover {
 }
 #article {
 	margin:20px;
-	width:110px;
+	width:185px;
+	border:solid 1px #f5f5f5;
+	padding: 10px;
 }
 #page {
-	width: 600px
+	width: 1300px
 }
-
+img {
+	width:185px;
+}
+#commentaire {
+	margin:140px;
+}
 
 /* section footer */
 .footer-color-contact {

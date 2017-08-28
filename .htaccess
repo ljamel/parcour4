@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^(.*)$ tp-app-poo/Web/bootstrap.php?app=Frontend [QSA,L]

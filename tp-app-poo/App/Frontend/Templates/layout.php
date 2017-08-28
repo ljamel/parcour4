@@ -21,7 +21,7 @@
 			</a>
 		</h1>
 		<nav>
-			<ul>
+			<ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
 				<li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
 				<?php if ($user->isAuthenticated()) { ?>
 				<li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>

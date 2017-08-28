@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^(.*)$ Web/bootstrap.php?app=Frontend [QSA,L]

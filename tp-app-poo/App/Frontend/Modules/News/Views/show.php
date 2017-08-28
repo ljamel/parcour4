@@ -6,6 +6,7 @@
 		<?= $news['titre'] ?>
 	</h2>
 	<p>
+		<img src="<?= nl2br($news['image']) ?>" alt="<?= $news['titre'] ?>">
 		<?= nl2br($news['contenu']) ?>
 	</p>
 </div>
@@ -13,7 +14,6 @@
 <p style="text-align: right;"><small><em>Modifiée le <?= $news['dateModif']->format('d/m/Y à H\hi') ?></em></small></p>
 <?php } ?>
 
-<p><a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
 
 <?php
 if (empty($comments))
@@ -42,5 +42,4 @@ foreach ($comments as $comment)
 		<?php
 }
 ?>
-
-		<p><a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+		<p id="commentaire"> <a href="commenter-<?= $news['id'] ?>.html"> Ajouter un commentaire</a> </p>
