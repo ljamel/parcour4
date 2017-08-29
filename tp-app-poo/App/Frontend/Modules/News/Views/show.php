@@ -6,7 +6,7 @@
 		<?= $news['titre'] ?>
 	</h2>
 	<p>
-		<img src="<?= nl2br($news['image']) ?>" alt="<?= $news['titre'] ?>">
+		<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
 		<?= nl2br($news['contenu']) ?>
 	</p>
 </div>

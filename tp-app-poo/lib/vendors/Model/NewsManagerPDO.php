@@ -26,6 +26,7 @@ class NewsManagerPDO extends NewsManager
     $this->dao->exec('DELETE FROM news WHERE id = '.(int) $id);
   }
 
+  // Appell les données qui seron affiche dans la page index
   public function getList($debut = -1, $limite = -1)
   {
     $sql = 'SELECT id, auteur, titre, contenu, image, dateAjout, dateModif FROM news ORDER BY id DESC';
@@ -51,9 +52,10 @@ class NewsManagerPDO extends NewsManager
     return $listeNews;
   }
   
+  // Appel les données qui seron afficher dans une page unique
   public function getUnique($id)
   {
-    $requete = $this->dao->prepare('SELECT id, auteur, titre, contenu, dateAjout, dateModif FROM news WHERE id = :id');
+    $requete = $this->dao->prepare('SELECT id, auteur, titre, contenu, image, dateAjout, dateModif FROM news WHERE id = :id');
     $requete->bindValue(':id', (int) $id, \PDO::PARAM_INT);
     $requete->execute();
     

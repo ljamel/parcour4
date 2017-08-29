@@ -28,7 +28,7 @@ abstract class NewsManager extends Manager
     }
     else
     {
-      throw new \RuntimeException('La news doit être validée pour être enregistrée');
+      throw new \RuntimeException('Tous les champs doivent être remplies pour pouvoir ajouté un article');
     }
   }
 

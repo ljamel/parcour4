@@ -12,6 +12,8 @@ class NewsController extends BackController
   public function executeIndex(HTTPRequest $request)
   {
     $nombreNews = $this->app->config()->get('nombre_news');
+    $maNews = $this->app->config()->get('first_news');
+    $preNews = $this->app->config()->get('pre_news');
     $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
     
     // On ajoute une définition pour le titre.
@@ -21,7 +23,10 @@ class NewsController extends BackController
     $manager = $this->managers->getManagerOf('News');
     
     $listeNews = $manager->getList(0, $nombreNews);
+    $firstNews = $manager->getList(0, $maNews);
+    $preNews = $manager->getList(0, $preNews);
     
+	// Compte le nombre de caractères de chaque poste
     foreach ($listeNews as $news)
     {
       if (strlen($news->contenu()) > $nombreCaracteres)
@@ -35,6 +40,8 @@ class NewsController extends BackController
     
     // On ajoute la variable $listeNews à la vue.
     $this->page->addVar('listeNews', $listeNews);
+    $this->page->addVar('firstNews', $firstNews);
+    $this->page->addVar('preNews', $preNews);
   }
   
   public function executeShow(HTTPRequest $request)

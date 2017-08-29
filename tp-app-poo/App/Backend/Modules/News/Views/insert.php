@@ -1,8 +1,9 @@
-<h2>Ajouter une news</h2>
-<form action="" method="post">
-  <p>
-    <?= $form ?>
-    
-    <input type="submit" value="Ajouter" />
-  </p>
-</form>
+<h2>Ajouter un article</h2>
+<div id="ajout">
+	<form action="" method="post">
+		<p>
+			<?= $form ?>
+				<input class="bouton" type="submit" value="Ajouter" />
+		</p>
+	</form>
+</div>
