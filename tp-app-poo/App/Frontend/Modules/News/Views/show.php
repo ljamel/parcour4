@@ -1,3 +1,9 @@
+<style type="text/css">
+	#main {
+		margin-top: 170px;
+	}
+
+</style>
 <div id="page">
 	<p>Par <em><?= $news['auteur'] ?></em>, le
 		<?= $news['dateAjout']->format('d/m/Y à H\hi') ?>
@@ -7,7 +13,10 @@
 	</h2>
 	<p>
 		<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
-		<?= nl2br($news['contenu']) ?>
+		<?= nl2br($news['contenu']) ?><br />
+			<?php if ($user->isAuthenticated()) {  ?>
+			<a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
+			<?php } ?>
 	</p>
 </div>
 <?php if ($news['dateAjout'] != $news['dateModif']) { ?>

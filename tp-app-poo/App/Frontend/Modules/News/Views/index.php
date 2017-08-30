@@ -45,7 +45,10 @@ foreach ($firstNews as $news)
 
 		<p>
 			<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
-			<?= nl2br($news['contenu']) ?>
+			<?= nl2br($news['contenu']);  if ($user->isAuthenticated()) {  ?>
+				
+			<a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
+			<?php } ?>
 		</p>
 	</div>
 	<?php
@@ -65,7 +68,11 @@ foreach ($listeNews as $news)
 
 		<p>
 			<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
-			<?= nl2br($news['contenu']) ?>
+			<?= nl2br($news['contenu']) ?> 
+			
+			<?php if ($user->isAuthenticated()) {  ?>	
+			<a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
+			<?php } ?>
 		</p>
 	</div>
 	<?php
