@@ -1,5 +1,4 @@
-function Accueil(e) {
-	this.id = e;
+function Accueil() {
 	this.menuHead = "fixe";
 	this.lastScroll = 0;
 
@@ -21,7 +20,7 @@ function Accueil(e) {
 	this.bouton = function (ad) {
 		document.getElementById('myModal').style.visibility = "visible";
 		document.getElementById('delSure').innerHTML = '<a href=news-delete-'+ ad +'.html id="delSure">OUI';
-	}
+	};
 
 	// When the user clicks on <span> (x), close the modal
 	this.close = function () {
