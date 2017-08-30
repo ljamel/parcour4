@@ -32,5 +32,4 @@ function Accueil(e) {
 }
 var menuAccueil = new Accueil();
 var del = new Accueil();
-var id;
 window.addEventListener('scroll', menuAccueil.scroll, false);
