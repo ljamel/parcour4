@@ -6,7 +6,8 @@ RewriteRule ^admin/ bootstrap.php?app=Backend [QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteRule ^(.*)$ bootstrap.php?app=Frontend [QSA,L]
+RewriteRule ^.* bootstrap.php?app=Frontend&pageSuivante=1 [QSA,L]
+RewriteRule ^index.php bootstrap.php?app=Frontend&pageSuivante=1 [QSA,L]
 
 
 

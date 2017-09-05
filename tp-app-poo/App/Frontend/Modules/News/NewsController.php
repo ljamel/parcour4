@@ -6,7 +6,7 @@ use \OCFram\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \OCFram\FormHandler;
-
+// TODO Ajouter une modération commentaire et un timestamp et un recaptcha qui empeche le spam
 class NewsController extends BackController
 {
   public function executeIndex(HTTPRequest $request)
@@ -21,10 +21,11 @@ class NewsController extends BackController
     
     // On récupère le manager des news.
     $manager = $this->managers->getManagerOf('News');
-    
+
     $listeNews = $manager->getList(0, $nombreNews);
+    // todo Si dessous je pourrez ajouter un lien suivant
     $firstNews = $manager->getList(0, $maNews);
-    $preNews = $manager->getList(0, $preNews);
+    $preNews = $manager->getList($_GET["pageSuivante"], $preNews+$_GET["pageSuivante"]);
     
 	// Compte le nombre de caractères de chaque poste
     foreach ($listeNews as $news)

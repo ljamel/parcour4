@@ -21,7 +21,7 @@ foreach ($listeNews as $news)
 	  <!-- Modal content -->
 	  <div class="modal-content">
 		<span class="close" onclick="del.close()">&times;</span>
-		<p> Êtes-vous sûr de vouloir supprimer définitivement l\'article <span id="delSure"></span> <a href=""><strong>NON</strong></a></span></td></tr></p>
+		<p> Êtes-vous sûr de vouloir supprimer définitivement l\'article <span id="delSure"></span> <a href=""><strong id="delNon">NON</strong></a></span></td></tr></p>
 	  </div>
 	</div>
   

@@ -3,7 +3,7 @@ namespace App\Backend\Modules\Connexion;
 
 use \OCFram\BackController;
 use \OCFram\HTTPRequest;
-
+// todo Ajouter une fonction de déconnection ici
 class ConnexionController extends BackController
 {
   public function executeIndex(HTTPRequest $request)

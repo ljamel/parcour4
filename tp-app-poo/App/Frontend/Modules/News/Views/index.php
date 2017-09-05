@@ -54,8 +54,9 @@ foreach ($firstNews as $news)
 	<?php
 }
 ?>
-<h2>Si dessous les 20 derniers articles postés</h2><br />
+<h2>Si dessous les 5 derniers articles postés</h2><br />
 <?php
+// TODO Ajouter lien page suivante
 foreach ($listeNews as $news)
 {
 ?>
@@ -75,8 +76,11 @@ foreach ($listeNews as $news)
 			<?php } ?>
 		</p>
 	</div>
+    <!-- Les erreurs html empeche l'affichage de la page ???? bizzar -->
 	<?php
 }
+?>
 
+<a href="" onclick="suivant.GET(suivant.$_GET('pageSuivante') +5)";>Suivant</a>
 
 

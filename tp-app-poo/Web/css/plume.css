@@ -110,10 +110,12 @@ img {
 }
 input {
 	margin-top:6px;
+	border-style:1px solid;
 }
 textarea {
 	width:590px;
 	height: 400px;
+	border-style:1px solid;
 }
 #ajout {
 	background-color:#fdfdf8;
@@ -127,7 +129,7 @@ tr {
 	background-color: white;
 	line-height:30px;
 }
-tr:hover :not(th.modal) {
+tr:hover :not(.modal) {
 	background-color: #f5f5f5;
 }
 table {
@@ -253,10 +255,15 @@ table td {
     cursor: pointer;
 }
 span #delSure {
-	color:#BB0B0B;
+	color:#5CADD3;
 	margin-right:30px;
 	margin-left:30px;
 }
+#delNon {
+    color:#BB0B0B;
+}
+
+
 /* Grand format */
 @media screen and (min-width: 1200px) {
 	#main {
