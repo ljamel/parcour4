@@ -82,12 +82,6 @@ foreach ($listeNews as $news)
 
 }
 
-// j'ai réussi a afficher la liste des news ici il faut que je l'affiche dans la page backend
-foreach ($listeComment as $com)
-{
-    echo $com['contenu'];
-    echo '<br />';
-}
 ?>
 
 <a href="" onclick="suivant.GET(suivant.$_GET('pageSuivante') +5)";>Suivant</a>

@@ -55,9 +55,12 @@ class NewsController extends BackController
     {
       $this->app->httpResponse()->redirect404();
     }
-    
+
+    // NB Pour afficher un champs crée dans la BDD il faut modifier la ligne si dessous et la page news.php
     $this->page->addVar('title', $news->titre());
     $this->page->addVar('image', $news->image());
+    $this->page->addVar('etat', $news->etat());
+    $this->page->addVar('date', $news->date());
     $this->page->addVar('news', $news);
     $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($news->id()));
   }

@@ -18,10 +18,26 @@ function Accueil() {
         document.getElementById('myModal').style.visibility = "visible";
         document.getElementById('delSure').innerHTML = '<a href=news-delete-' + ad + '.html id="delSure">OUI';
     };
+    // Demande de confiramtion de supression de fichiers
+    this.boutonComment = function (ad) {
+        document.getElementById('myModal2').style.visibility = "visible";
+        document.getElementById('delSureComment').innerHTML = '<a href=comment-delete-' + ad + '.html id="delSureComment">OUI';
+    };
+
+    this.openComment = function () {
+        document.getElementById('manageCommentaire').style.visibility = "visible";
+        document.getElementById('manageArticle').style.display = "none";
+    };
+
+    this.openManage = function () {
+        document.getElementById('manageCommentaire').style.visibility = "hidden";
+        document.getElementById('manageArticle').style.display = "block";
+    };
 
     // When the user clicks on <span> (x), close the modal
     this.close = function () {
         document.getElementById('myModal').style.visibility = "hidden";
+        document.getElementById('myModal2').style.visibility = "hidden";
     };
 
     this.$_GET = function (param) {
@@ -43,6 +59,7 @@ function Accueil() {
 var menuAccueil = new Accueil();
 var del = new Accueil();
 var suivant = new Accueil();
+var manageComment = new Accueil();
 window.addEventListener('scroll', menuAccueil.scroll, false);
 
 

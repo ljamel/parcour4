@@ -55,7 +55,7 @@ class NewsManagerPDO extends NewsManager
     // Appelle les données qui affiche les commentaires
     public function getListComment($debut = -1, $limite = -1)
     {
-        $sql = 'SELECT id, news, auteur, contenu, date FROM comments ORDER BY id DESC';
+        $sql = 'SELECT id, news, auteur, contenu, date, etat FROM comments ORDER BY id DESC';
 
         if ($debut != -1 || $limite != -1)
         {

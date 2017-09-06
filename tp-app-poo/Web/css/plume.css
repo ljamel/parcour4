@@ -107,6 +107,8 @@ img {
 	color: #fff;
 	width: 100px;
 	border: none;
+	margin-right:5px;
+	height: 32px;
 }
 input {
 	margin-top:6px;
@@ -134,6 +136,7 @@ tr:hover :not(.modal) {
 }
 table {
 	border-collapse: collapse;
+	margin-top:10px;
 }
 table td {
 	border-top:1px solid #f5f5f5;
@@ -230,7 +233,10 @@ table td {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
+/* affichage commentaire management */
+#manageCommentaire {
+	visibility: hidden;
+}
 /* Modal Content */
 .modal-content {
     background-color: #fefefe;
