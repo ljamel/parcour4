@@ -32,6 +32,15 @@ class NewsController extends BackController
     $this->app->httpResponse()->redirect('.');
   }
 
+  public function executeSignalComment(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->signal($request->getData('id'));
+
+        $this->app->user()->setFlash('Le commentaire a bien été signalé !');
+
+        $this->app->httpResponse()->redirect('.');
+    }
+
   public function executeIndex(HTTPRequest $request)
   {
     $this->page->addVar('title', 'Page d\'administration');

@@ -20,6 +20,14 @@ abstract class CommentsManager extends Manager
    */
   abstract public function delete($id);
 
+
+    /**
+     * Méthode pour signaler un commentaire.
+     * @param $id L'idantifiant du commentaire à signalé
+     * @return mixed
+     */
+  abstract public function signal($id);
+
   /**
    * Méthode permettant de supprimer tous les commentaires liés à une news
    * @param $news L'identifiant de la news dont les commentaires doivent être supprimés
