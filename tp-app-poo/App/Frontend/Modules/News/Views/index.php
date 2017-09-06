@@ -78,6 +78,15 @@ foreach ($listeNews as $news)
 	</div>
     <!-- Les erreurs html empeche l'affichage de la page ???? bizzar -->
 	<?php
+
+
+}
+
+// j'ai réussi a afficher la liste des news ici il faut que je l'affiche dans la page backend
+foreach ($listeComment as $com)
+{
+    echo $com['contenu'];
+    echo '<br />';
 }
 ?>
 

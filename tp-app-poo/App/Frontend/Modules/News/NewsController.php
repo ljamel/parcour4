@@ -23,6 +23,7 @@ class NewsController extends BackController
     $manager = $this->managers->getManagerOf('News');
 
     $listeNews = $manager->getList(0, $nombreNews);
+    $listeComment = $manager->getListComment(0, $nombreNews);
     // todo Si dessous je pourrez ajouter un lien suivant
     $firstNews = $manager->getList(0, $maNews);
     $preNews = $manager->getList($_GET["pageSuivante"], $preNews+$_GET["pageSuivante"]);
@@ -43,6 +44,7 @@ class NewsController extends BackController
     $this->page->addVar('listeNews', $listeNews);
     $this->page->addVar('firstNews', $firstNews);
     $this->page->addVar('preNews', $preNews);
+    $this->page->addVar('listeComment', $listeComment);
   }
   
   public function executeShow(HTTPRequest $request)

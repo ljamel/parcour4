@@ -27,5 +27,38 @@ foreach ($listeNews as $news)
   
   ', "\n";
 }
+
+?>
+</table>
+
+
+<table>
+    <tr>
+        <th class="none">Auteur</th>
+        <th>Titre</th>
+        <th>Date d'ajout</th>
+        <th class="none">Etat</th>
+        <th>Action</th>
+    </tr>
+
+
+<?php
+    foreach ($listeComment as $com)
+    {
+    echo ' <tr><td class="none">', $com['auteur'], '</td><td>', $com['contenu'], '</td><td>le ', $com['date'], '</td><td class="none"></td><td>
+
+            <i class="fa fa-trash-o fa-2x" aria-hidden="true" onclick="del.bouton(', $news['id'], ');"></i>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close" onclick="del.close()">&times;</span>
+                    <p> Êtes-vous sûr de vouloir supprimer définitivement l\'article <span id="delSure"></span> <a href=""><strong id="delNon">NON</strong></a></span></td></tr></p>
+    </div>
+    </div>
+
+    ', "\n";
+    }
 ?>
 </table>

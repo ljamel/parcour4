@@ -51,6 +51,26 @@ class NewsManagerPDO extends NewsManager
 
         return $listeNews;
     }
+
+    // Appelle les données qui affiche les commentaires
+    public function getListComment($debut = -1, $limite = -1)
+    {
+        $sql = 'SELECT id, news, auteur, contenu, date FROM comments ORDER BY id DESC';
+
+        if ($debut != -1 || $limite != -1)
+        {
+            $sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
+        }
+
+        $requete = $this->dao->query($sql);
+        $requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\News');
+
+        $listeComment = $requete->fetchAll();
+
+        $requete->closeCursor();
+
+        return $listeComment;
+    }
 // todo Crée un  fichier en s'inspirant de celui la pour manage commentaire 'commenteManagerPDO.php'
 
     // Appel les données qui seron afficher dans une page unique
