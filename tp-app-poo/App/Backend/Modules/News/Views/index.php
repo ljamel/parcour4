@@ -39,7 +39,7 @@
     <table id="manageCommentaire">
         <tr>
             <th class="none">Auteur</th>
-            <th>Titre</th>
+            <th>Contenu</th>
             <th>Date d'ajout</th>
             <th class="none">Etat</th>
             <th>Action</th>
@@ -47,10 +47,12 @@
 
 
 <?php
+$etats = array("Signaler", "Publier");
+$code = array("0", "2");
 // Affichage liste commentaire
 foreach ($listeComment as $com)
 {
-    echo ' <tr><td class="none">', $com['auteur'], '</td><td>', $com['contenu'], '</td><td>le ', $com['date'], '</td><td class="none">', $com['etat'], '</td>
+    echo ' <tr><td class="none">', $com['auteur'], '</td><td><a href="comment-update-', $com['id'], '.html">', substr($com['contenu'], 0, 160), '</a></td><td>le ', $com['date'], '</td><td class="none ', $newE = str_replace($code, $etats, $com['etat']),'">', $newE = str_replace($code, $etats, $com['etat']),'</td>
 
     <td>
 

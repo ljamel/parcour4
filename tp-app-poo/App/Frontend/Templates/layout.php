@@ -63,6 +63,7 @@
 
         </div>
 
+        <a href="deconnection.html"> Déconnection </a>
         <a href="admin/"> Admin </a>
 
     </section>

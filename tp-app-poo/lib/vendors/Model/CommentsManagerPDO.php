@@ -33,6 +33,11 @@ class CommentsManagerPDO extends CommentsManager
         $q->execute();
     }
 
+    public function deco()
+    {
+        $_SESSION['auth'] = false;
+    }
+
 
     // methode qui supprime tous la commentaires d'un article
     public function deleteFromNews($news)

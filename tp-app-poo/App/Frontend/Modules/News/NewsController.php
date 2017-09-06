@@ -74,6 +74,15 @@ class NewsController extends BackController
         $this->app->httpResponse()->redirect('.');
     }
 
+    public function executeDeco(HTTPRequest $request)
+    {
+        $_SESSION['auth'] = false;
+
+        $this->app->user()->setFlash('Vous vous etes déconnecté !');
+
+        $this->app->httpResponse()->redirect('.');
+    }
+
     public function executeInsertComment(HTTPRequest $request)
   {
     // Si le formulaire a été envoyé.

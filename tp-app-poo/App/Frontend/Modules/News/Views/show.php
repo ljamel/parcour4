@@ -4,6 +4,8 @@
 	}
 
 </style>
+<!-- page unique -->
+
 <div id="page">
 	<p>Par <em><?= $news['auteur'] ?></em>, le
 		<?= $news['dateAjout']->format('d/m/Y à H\hi') ?>
@@ -35,22 +37,24 @@ if (empty($comments))
 foreach ($comments as $comment)
 {
 ?>
+<div>
 		<fieldset>
 			<legend>
-				Posté par <strong><?= htmlspecialchars($comment['auteur']) ?></strong> le
+				Posté par <strong><?= $comment['auteur'] ?></strong> le
 				<?= $comment['date']->format('d/m/Y à H\hi') ?>
 					<?php if ($user->isAuthenticated()) { ?> -
 					<a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
 					<a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a> |
 					<?php } ?>
 
-                    <a href="admin/comment-signal-<?= $comment['id'] ?>.html">Signaler</a>
+                    <a href="comment-signal-<?= $comment['id'] ?>.html">Signaler</a>
 			</legend>
 			<p>
-				<?= nl2br(htmlspecialchars($comment['contenu'])) ?>
+				<?= $comment['contenu'] ?>
 			</p>
 		</fieldset>
 		<?php
 }
 ?>
-		<p id="commentaire"> <a href="commenter-<?= $news['id'] ?>.html"> Ajouter un commentaire</a> </p>
+<div class="ajoutCom"><a href="commenter-<?= $news['id'] ?>.html"><span id="commentaire"> Ajouter un commentaire </span></a></div>
+</div>
