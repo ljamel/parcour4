@@ -56,5 +56,12 @@ foreach ($comments as $comment)
 		<?php
 }
 ?>
-<div class="ajoutCom"><a href="commenter-<?= $news['id'] ?>.html"><span id="commentaire"> Ajouter un commentaire </span></a></div>
+
+    <h2>Ajouter un commentaire</h2>
+    <form action="commenter-<?= $news['id'] ?>.html" method="post">
+        <p>
+            <label>Auteur</label><input name="auteur" maxlength="50" type="text"><br><br><label>Contenu</label><br><textarea name="contenu" cols="50" rows="7"></textarea><br>
+            <input class="bouton" value="Commenter" type="submit">
+        </p>
+    </form>
 </div>

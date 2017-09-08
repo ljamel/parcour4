@@ -63,14 +63,12 @@
 
         </div>
 
-        <a href="deconnection.html"> Déconnection </a>
+        <a href="deconnection.html"> Déconnection </a> |
         <a href="admin/"> Admin </a>
 
     </section>
 </div>
 
-<script src="http://localhost/Sources_TP_App/tp-app-poo/Web/js/tinymce/js/tinymce/tinymce.js"></script>
-<script src="http://localhost/Sources_TP_App/tp-app-poo/Web/js/tinymce.js"></script>
 <script src="http://localhost/Sources_TP_App/tp-app-poo/Web/js/javascript.js"></script>
 </body>
 

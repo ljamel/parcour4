@@ -1,6 +1,6 @@
 <div id="manage">
     <div id="menuSecond">
-        <button class="bouton" onclick="manageComment.openComment()"> commentaire </button>
+        <button class="bouton" onclick="manageComment.openComment()"> commentaires </button>
         <button class="bouton" onclick="manageComment.openManage()"> articles </button>
     </div>
     <div id="manageArticle">
@@ -14,6 +14,8 @@
                 <th>Action</th>
             </tr>
             <?php
+
+            // todo ajouter une page contacte envoie mail
             foreach ($listeNews as $news)
             {
                 echo ' <tr><td class="none">', $news['auteur'], '</td><td>', $news['titre'], '</td><td>le ', $news['dateAjout']->format('d/m/Y à H\hi'), '</td><td class="none">', ($news['dateAjout'] == $news['dateModif'] ? '-' : 'le '.$news['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="news-update-', $news['id'], '.html"> <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> </a>
@@ -42,17 +44,19 @@
             <th>Contenu</th>
             <th>Date d'ajout</th>
             <th class="none">Etat</th>
+            <th class="none">Nombres de signalements</th>
             <th>Action</th>
         </tr>
 
 
 <?php
-$etats = array("Signaler", "Publier");
-$code = array("0", "2");
+
 // Affichage liste commentaire
 foreach ($listeComment as $com)
 {
-    echo ' <tr><td class="none">', $com['auteur'], '</td><td><a href="comment-update-', $com['id'], '.html">', substr($com['contenu'], 0, 160), '</a></td><td>le ', $com['date'], '</td><td class="none ', $newE = str_replace($code, $etats, $com['etat']),'">', $newE = str_replace($code, $etats, $com['etat']),'</td>
+    if ($com['etat'] > 1 ) { $codeN = 'Signaler';} else { $codeN = "Publier";}
+
+    echo ' <tr><td class="none">', $com['auteur'], '</td><td><a href="comment-update-', $com['id'], '.html">', substr($com['contenu'], 0, 160), '</a></td><td>le ', $com['date'], '</td><td class="none ', $codeN,'">', $codeN,'</td><td class="center"> ', $com['etat'],'</td>
 
     <td>
 

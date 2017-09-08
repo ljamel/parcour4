@@ -29,11 +29,9 @@ body {
 h1 {
 	margin-bottom: 0px;
 }
-
-h2 {
-	width: 1850px;
-}
-
+ .center {
+	 text-align: center;
+ }
 a {
 	text-decoration: none;
 	color: #1f1a21;
@@ -124,11 +122,7 @@ input {
 	margin-top:6px;
 	border-style:1px solid;
 }
-textarea {
-	width:590px;
-	height: 400px;
-	border-style:1px solid;
-}
+
 #ajout {
 	background-color:#fdfdf8;
 	padding:20px;
@@ -292,9 +286,7 @@ span #delSure {
 	#main {
 		margin-top:610px;
 	}
-	textarea {
-		width:900px;
-	}
+
 }
 
 /*Formats mobile*/
@@ -315,7 +307,5 @@ span #delSure {
 	.none {
 		display:none;
 	}
-	textarea {
-		width:100%;
-	}
+
 }

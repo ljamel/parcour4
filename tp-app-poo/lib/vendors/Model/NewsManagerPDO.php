@@ -55,7 +55,7 @@ class NewsManagerPDO extends NewsManager
     // Appelle les données qui affiche les commentaires
     public function getListComment($debut = -1, $limite = -1)
     {
-        $sql = 'SELECT id, news, auteur, contenu, date, etat FROM comments ORDER BY id DESC';
+        $sql = 'SELECT id, news, auteur, contenu, date, etat FROM comments ORDER BY etat DESC';
 
         if ($debut != -1 || $limite != -1)
         {
@@ -73,7 +73,7 @@ class NewsManagerPDO extends NewsManager
     }
 // todo Crée un  fichier en s'inspirant de celui la pour manage commentaire 'commenteManagerPDO.php'
 
-    // Appel les données qui seron afficher dans une page unique
+
     public function getUnique($id)
     {
         $requete = $this->dao->prepare('SELECT id, auteur, titre, contenu, image, dateAjout, dateModif FROM news WHERE id = :id');
@@ -89,7 +89,7 @@ class NewsManagerPDO extends NewsManager
       
             return $news;
         }
-    
+
         return null;
     }
 
