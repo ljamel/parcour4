@@ -50,39 +50,38 @@ foreach ($firstNews as $news)
 			<a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
 			<?php } ?>
 		</p>
+
+        <h2>Si dessous les 5 derniers articles postés</h2><br />
 	</div>
 	<?php
 }
-?>
-<h2>Si dessous les 5 derniers articles postés</h2><br />
-<?php
-// TODO Ajouter lien page suivante
-foreach ($listeNews as $news)
-{
-?>
-	<div id="article">
-		<h3>
-			<a href="news-<?= $news['id'] ?>.html">
-				<?= $news['titre'] ?>
-			</a>
-		</h3>
+    // TODO Ajouter lien page suivante
+    foreach ($listeNews as $news)
+    {
+    ?>
+        <div id="article">
+            <h3>
+                <a href="news-<?= $news['id'] ?>.html">
+                    <?= $news['titre'] ?>
+                </a>
+            </h3>
 
-		<p>
-			<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
-			<?= nl2br($news['contenu']) ?> 
-			
-			<?php if ($user->isAuthenticated()) {  ?>	
-			<a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
-			<?php } ?>
-		</p>
-	</div>
-    <!-- Les erreurs html empeche l'affichage de la page ???? bizzar -->
-	<?php
+            <p>
+                <img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+                <?= nl2br($news['contenu']) ?>
+
+                <?php if ($user->isAuthenticated()) {  ?>
+                <a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
+                <?php } ?>
+            </p>
+        </div>
+        <!-- Les erreurs html empeche l'affichage de la page ???? bizzar -->
+        <?php
 
 
-}
+    }
 
-?>
+    ?>
 
 <a href="" onclick="suivant.GET(suivant.$_GET('pageSuivante') +5)";>Suivant</a>
 
