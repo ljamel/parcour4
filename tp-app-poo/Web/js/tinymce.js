@@ -1,10 +1,11 @@
 /* Tinymce bloque l'envoie d'image quand j'utilise la version personnaliser */
 tinymce.init({
-    selector: 'textarea', // a modifier
+    selector: 'textarea',
+    language: 'fr_FR',
     skin: 'custom',
     height: 500,
     plugins: [
-        'advlist lists charmap print preview hr anchor pagebreak spellchecker',
+        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
         'save table contextmenu directionality emoticons template paste textcolor',
     ],

@@ -1,14 +1,4 @@
-<style type="text/css"> /* Pour que le style soit afficher uniquement sur la page index PS;essayer de trouver une autre solution */
-body {
-	background-image: url(http://localhost/Sources_TP_App/tp-app-poo/Web/images/index.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-#content-wrap {
-	background-color: rgba(245, 245, 245, 0.43);
-}
-
-</style>
+<link rel="stylesheet" href="./css/index.css" type="text/css" />
 <div class="titrePresentation">Présentation</div>
 <?php
 foreach ($preNews as $key => $news)

@@ -1,0 +1,27 @@
+body {
+    background-image: url(../../Web/images/index.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#content-wrap {
+    background-color: rgba(245, 245, 245, 0.43);
+}
+
+
+#main {
+    /* penser a aligner le contenue et ajouté du design */
+    margin-top: 350px;
+}
+/* Grand format */
+@media screen and (min-width: 1200px) {
+    #main {
+        margin-top:610px;
+    }
+
+}
+@media screen and (max-width: 700px) {
+    #main {
+        margin: 5px;
+        margin-top: 70px;
+    }
+}

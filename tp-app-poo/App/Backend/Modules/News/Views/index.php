@@ -42,9 +42,9 @@
         <tr>
             <th class="none">Auteur</th>
             <th>Contenu</th>
-            <th>Date d'ajout</th>
+            <th class="none">Date d'ajout</th>
             <th class="none">Etat</th>
-            <th class="none">Nombres de signalements</th>
+            <th>Nombres de signalements</th>
             <th>Action</th>
         </tr>
 
@@ -57,7 +57,7 @@ foreach ($listeComment as $com)
     // verifi l'etat du commentaire avec le nombres de signalements
     if ($com['etat'] > 1 ) { $codeN = 'Signaler';} else { $codeN = "Publier";}
 
-    echo ' <tr><td class="none">', $com['auteur'], '</td><td><a href="comment-update-', $com['id'], '.html">', substr($com['contenu'], 0, 160), '</a></td><td>le ', $com['date'], '</td><td class="none ', $codeN,'">', $codeN,'</td><td class="center"> ', $com['etat'],'</td>
+    echo ' <tr><td class="none">', $com['auteur'], '</td><td><a href="comment-update-', $com['id'], '.html">', substr($com['contenu'], 0, 160), '</a></td><td class="none">le ', $com['date'], '</td><td class="none ', $codeN,'">', $codeN,'</td><td class="center"> ', $com['etat'],'</td>
 
     <td>
 

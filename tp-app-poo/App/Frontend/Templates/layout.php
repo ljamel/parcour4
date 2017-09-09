@@ -10,7 +10,7 @@
     <meta property="og:description" content="" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost/Sources_TP_App/tp-app-poo/Web/css/plume.css" type="text/css" />
+    <link rel="stylesheet" href="./../Web/css/plume.css" type="text/css" />
 </head>
 
 <body>
@@ -22,7 +22,7 @@
     </h1>
     <nav>
         <ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
-            <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
+            <li><a href="/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <?php if ($user->isAuthenticated()) { ?>
                 <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
                 <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
