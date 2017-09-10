@@ -16,16 +16,16 @@
 <body>
 <div id="menu-header">
     <h1>
-        <a href="http://localhost/Sources_TP_App/tp-app-poo/Web/">
+        <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/">
             <?= isset($title) ? $title : 'Blog' ?>
         </a>
     </h1>
     <nav>
         <ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
-            <li><a href="/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <?php if ($user->isAuthenticated()) { ?>
-                <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
-                <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
             <?php } ?>
         </ul>
     </nav>
@@ -33,10 +33,10 @@
 <div id="menu-header-scrollBas">
     <nav>
         <ul>
-            <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <?php if ($user->isAuthenticated()) { ?>
-                <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
-                <li><a href="http://localhost/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
             <?php } ?>
         </ul>
     </nav>
@@ -63,13 +63,13 @@
 
         </div>
 
-        <a href="deconnection.html"> Déconnection </a> |
-        <a href="admin/"> Admin </a>
+        <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/deconnection.html"> Déconnection </a> |
+        <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a>
 
     </section>
 </div>
 
-<script src="http://localhost/Sources_TP_App/tp-app-poo/Web/js/javascript.js"></script>
+<script src="/parcour4/Sources_TP_App/tp-app-poo/Web/js/javascript.js"></script>
 </body>
 
 </html>

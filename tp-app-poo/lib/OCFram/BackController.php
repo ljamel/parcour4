@@ -1,6 +1,9 @@
 <?php
 namespace OCFram;
 
+
+ini_set('display_errors',1);
+
 abstract class BackController extends ApplicationComponent
 {
   protected $action = '';
@@ -12,7 +15,7 @@ abstract class BackController extends ApplicationComponent
   public function __construct(Application $app, $module, $action)
   {
     parent::__construct($app);
-echo 'back';
+
     $this->managers = new Managers('PDO', PDOFactory::getMysqlConnexion());
     $this->page = new Page($app);
 

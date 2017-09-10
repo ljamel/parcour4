@@ -1,0 +1,12 @@
+#main {
+    margin:170px;
+}
+
+.commentaireShow {
+    width:100%;
+}
+@media screen and (max-width: 700px) {
+    #main {
+        margin: 5px;
+        margin-top:20px;
+    }

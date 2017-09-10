@@ -25,9 +25,9 @@ class CommentsManagerPDO extends CommentsManager
 
     public function signal($id)
     {
-        $q = $this->dao->prepare('UPDATE comments SET etat = :etat WHERE id = :id');
+        $q = $this->dao->prepare('UPDATE comments SET etat = etat + 1 WHERE id = :id');
 
-        $q->bindValue(':id', $id, \PDO::PARAM_INT);
+        $q->bindValue(':id', $id);
 
         $q->execute();
     }

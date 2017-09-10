@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="./css/show.css" type="text/css" />
 <!-- page unique -->
 
 <div id="page">
@@ -58,7 +58,7 @@ time();
         <h2>Ajouter un commentaire</h2>
         <form action="commenter-<?= $news['id'] ?>.html" method="post">
             <p>
-                <label>Auteur</label><input name="auteur" maxlength="50" type="text"><br><br><label>Contenu</label><br><textarea name="contenu" cols="50" rows="7"></textarea><br>
+                <label>Auteur</label><input name="auteur" maxlength="50" type="text"><br><br><label>Contenu</label><br><textarea class="commentaireShow" name="contenu" cols="50" rows="7"></textarea><br>
                 <input class="bouton" value=" Poster " type="submit">
             </p>
         </form>
