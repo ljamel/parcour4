@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6161df3-f51a-4ba5-9109-5c30c72624dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/bio.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/contacte.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Config/routes.xml" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Config/routes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/Connexion/ConnexionController.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/Connexion/ConnexionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/index.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/insert.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/insert.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/update.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Config/routes.xml" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Config/routes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/NewsController.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/NewsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/lib/OCFram/HTTPResponse.php" afterPath="$PROJECT_DIR$/tp-app-poo/lib/OCFram/HTTPResponse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/lib/vendors/Model/CommentsManager.php" afterPath="$PROJECT_DIR$/tp-app-poo/lib/vendors/Model/CommentsManager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/lib/vendors/Model/CommentsManagerPDO.php" afterPath="$PROJECT_DIR$/tp-app-poo/lib/vendors/Model/CommentsManagerPDO.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -99,7 +86,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bio.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bio.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/bio.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="470">
@@ -127,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="39" column="99" lean-forward="false" selection-start-line="39" selection-start-column="99" selection-end-line="39" selection-end-column="99" />
+            <state relative-caret-position="431">
+              <caret line="37" column="85" lean-forward="true" selection-start-line="37" selection-start-column="85" selection-end-line="37" selection-end-column="85" />
               <folding>
                 <marker date="1505122795108" expanded="true" signature="2322:2341" ph="..." />
               </folding>
@@ -481,12 +468,12 @@
       <option name="presentableId" value="Default" />
       <updated>1504117281154</updated>
       <workItem from="1504117283718" duration="7935000" />
-      <workItem from="1504130797906" duration="112371000" />
+      <workItem from="1504130797906" duration="112582000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120306000" />
+    <option name="totallyTimeSpent" value="120517000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -979,14 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/bio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/show.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1015,11 +994,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="39" column="99" lean-forward="false" selection-start-line="39" selection-start-column="99" selection-end-line="39" selection-end-column="99" />
+        <state relative-caret-position="431">
+          <caret line="37" column="85" lean-forward="true" selection-start-line="37" selection-start-column="85" selection-end-line="37" selection-end-column="85" />
           <folding>
             <marker date="1505122795108" expanded="true" signature="2322:2341" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/bio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
