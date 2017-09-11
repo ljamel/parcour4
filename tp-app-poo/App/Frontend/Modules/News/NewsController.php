@@ -83,6 +83,41 @@ class NewsController extends BackController
         $this->app->httpResponse()->redirect('.');
     }
 
+    public function executeBio(HTTPRequest $request)
+    {
+        $this->app->user()->setFlash('Ma bio');
+
+        // On ajoute une définition pour le titre.
+        $this->page->addVar('title', ' Ma biographie ');
+
+
+        // On récupère le manager des news.
+        $manager = $this->managers->getManagerOf('News');
+
+        $bioNews = $manager->getList(0, 99);
+
+
+        // On ajoute la variable $listeNews à la vue.
+        $this->page->addVar('bioNews', $bioNews);
+    }
+
+    public function executeContacte(HTTPRequest $request)
+    {
+
+        // On ajoute une définition pour le titre.
+        $this->page->addVar('title', ' Me contacter ');
+
+
+        // On récupère le manager des news.
+        $manager = $this->managers->getManagerOf('News');
+
+        $bioNews = $manager->getList(0, 99);
+
+
+        // On ajoute la variable $listeNews à la vue.
+        $this->page->addVar('bioNews', $bioNews);
+    }
+
     public function executeInsertComment(HTTPRequest $request)
   {
     // Si le formulaire a été envoyé.

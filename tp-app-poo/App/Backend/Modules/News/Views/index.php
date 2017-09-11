@@ -18,7 +18,9 @@
             // todo ajouter une page contacte envoie mail
             foreach ($listeNews as $news)
             {
-                echo ' <tr><td class="none">', $news['auteur'], '</td><td>', $news['titre'], '</td><td>le ', $news['dateAjout']->format('d/m/Y à H\hi'), '</td><td class="none">', ($news['dateAjout'] == $news['dateModif'] ? '-' : 'le '.$news['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="news-update-', $news['id'], '.html"> <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> </a>
+                if($news['id'] != 1) // Le if pour empecher que des page importante soit supprimer
+                {
+                    echo ' <tr><td class="none">', $news['auteur'], '</td><td>', $news['titre'], '</td><td>le ', $news['dateAjout']->format('d/m/Y à H\hi'), '</td><td class="none">', ($news['dateAjout'] == $news['dateModif'] ? '-' : 'le ' . $news['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="news-update-', $news['id'], '.html"> <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> </a>
   
   <i class="fa fa-trash-o fa-2x" aria-hidden="true" onclick="del.bouton(', $news['id'], ');"></i> 
 	<!-- The Modal -->
@@ -32,6 +34,7 @@
 	</div>
   
   ', "\n";
+                }
             }
 
             ?>

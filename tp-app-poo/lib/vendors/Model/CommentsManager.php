@@ -30,6 +30,10 @@ abstract class CommentsManager extends Manager
 
   abstract public function deco();
 
+  abstract public function bio();
+
+  abstract public function contacte();
+
   /**
    * Méthode permettant de supprimer tous les commentaires liés à une news
    * @param $news L'identifiant de la news dont les commentaires doivent être supprimés

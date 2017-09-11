@@ -23,6 +23,8 @@
     <nav>
         <ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> contacte </a></li>
             <?php if ($user->isAuthenticated()) { ?>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
@@ -34,6 +36,8 @@
     <nav>
         <ul>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> contacte </a></li>
             <?php if ($user->isAuthenticated()) { ?>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>

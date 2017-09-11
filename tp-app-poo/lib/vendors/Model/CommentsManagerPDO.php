@@ -27,7 +27,7 @@ class CommentsManagerPDO extends CommentsManager
     {
         $q = $this->dao->prepare('UPDATE comments SET etat = etat + 1 WHERE id = :id');
 
-        $q->bindValue(':id', $id);
+        $q->bindValue(':id', $id, \PDO::PARAM_INT);
 
         $q->execute();
     }
@@ -35,6 +35,16 @@ class CommentsManagerPDO extends CommentsManager
     public function deco()
     {
         $_SESSION['auth'] = false;
+    }
+
+    public function bio()
+    {
+
+    }
+
+    public function contacte()
+    {
+
     }
 
 
