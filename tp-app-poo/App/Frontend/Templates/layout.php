@@ -15,12 +15,13 @@
 
 <body>
 <div id="menu-header">
-    <h1>
+    <h1 class="title">
         <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/">
             <?= isset($title) ? $title : 'Blog' ?>
         </a>
     </h1>
     <nav>
+        <div class="title"><?= $news['auteur'] ?></div>
         <ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>

@@ -19,7 +19,9 @@ foreach ($bioNews as $key => $news)
             </h3>
 
             <p>
-                <img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+                <?php  if ($news['image'] != '')  { ?>
+                    <img src="/parcour4/Sources_TP_App/tp-app-poo/Web/images/<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+                <?php } ?>
                 <?= nl2br($news['contenu']) ?>
             </p>
         </div><br /><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-update-1.html">Modifier la page</a>

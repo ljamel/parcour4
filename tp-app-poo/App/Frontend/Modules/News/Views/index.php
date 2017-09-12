@@ -3,7 +3,7 @@
 <?php
 foreach ($preNews as $key => $news)
 {
-	if($key == 1) {
+	if($news['id'] == 2) {
 ?>
 	<div id="presentation"> 
 		<h3>
@@ -13,7 +13,9 @@ foreach ($preNews as $key => $news)
 		</h3>
 
 		<p>
-			<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+            <?php  if ($news['image'] != '')  { ?>
+                <img src="/parcour4/Sources_TP_App/tp-app-poo/Web/images/<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+            <?php } ?>
 			<?= nl2br($news['contenu']) ?>
 		</p>
 	</div>
@@ -34,7 +36,9 @@ foreach ($firstNews as $news)
 		</h3>
 
 		<p>
-			<img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+            <?php  if ($news['image'] != '')  { ?>
+                <img src="/parcour4/Sources_TP_App/tp-app-poo/Web/images/<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+            <?php } ?>
 			<?= nl2br($news['contenu']);  if ($user->isAuthenticated()) {  ?>
 				
 			<a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
@@ -57,7 +61,9 @@ foreach ($firstNews as $news)
             </h3>
 
             <p>
-                <img src="<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+                <?php  if ($news['image'] != '')  { ?>
+                    <img src="/parcour4/Sources_TP_App/tp-app-poo/Web/images/<?= $news['image'] ?>" alt="<?= $news['titre'] ?>">
+                <?php } ?>
                 <?= nl2br($news['contenu']) ?>
 
                 <?php if ($user->isAuthenticated()) {  ?>

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./css/show.css" type="text/css" />
+
 <?php
 /**
  * Created by PhpStorm.
@@ -7,4 +7,4 @@
  * Time: 11:22
  */
 
-echo 'me contacter svp';
+echo 'Me contacter ';
