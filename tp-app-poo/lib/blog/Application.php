@@ -1,5 +1,5 @@
 <?php
-namespace OCFram;
+namespace blog;
 abstract class Application
 {
   protected $httpRequest;

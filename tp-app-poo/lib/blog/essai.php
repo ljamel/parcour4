@@ -1,5 +1,5 @@
 <?php
 
-namespace OCFram;
+namespace blog;
 
 echo 'mon namespace essai.php';

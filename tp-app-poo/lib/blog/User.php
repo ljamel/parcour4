@@ -1,5 +1,5 @@
 <?php
-namespace OCFram;
+namespace blog;
 
 session_start();
 class User

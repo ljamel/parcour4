@@ -1,7 +1,7 @@
 <?php
 namespace Entity;
 
-use \OCFram\Entity;
+use \blog\Entity;
 
 class Comment extends Entity
 {

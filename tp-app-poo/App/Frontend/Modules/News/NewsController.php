@@ -1,11 +1,11 @@
 <?php
 namespace App\Frontend\Modules\News;
 
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \blog\BackController;
+use \blog\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
-use \OCFram\FormHandler;
+use \blog\FormHandler;
 // TODO Ajouter une modération commentaire et un timestamp et un recaptcha qui empeche le spam
 class NewsController extends BackController
 {

@@ -1,13 +1,13 @@
 <?php
 namespace App\Backend\Modules\News;
 
-use \OCFram\BackController;
-use \OCFram\HTTPRequest;
+use \blog\BackController;
+use \blog\HTTPRequest;
 use \Entity\News;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \FormBuilder\NewsFormBuilder;
-use \OCFram\FormHandler;
+use \blog\FormHandler;
 
 class NewsController extends BackController
 {

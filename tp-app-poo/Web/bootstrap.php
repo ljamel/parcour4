@@ -5,11 +5,11 @@ const DEFAULT_APP = 'Frontend';
 if (!isset($_GET['app']) || !file_exists(__DIR__.'/../App/'.$_GET['app'])) $_GET['app'] = DEFAULT_APP;
 
 // On commence par inclure la classe nous permettant d'enregistrer nos autoload
-require __DIR__.'/../lib/OCFram/SplClassLoader.php';
+require __DIR__.'/../lib/blog/SplClassLoader.php';
 
-// On va ensuite enregistrer les autoloads correspondant à chaque vendor (OCFram, App, Model, etc.)
-$OCFramLoader = new SplClassLoader('OCFram', __DIR__.'/../lib');
-$OCFramLoader->register();
+// On va ensuite enregistrer les autoloads correspondant à chaque vendor (blog, App, Model, etc.)
+$blogLoader = new SplClassLoader('blog', __DIR__.'/../lib');
+$blogLoader->register();
 
 $appLoader = new SplClassLoader('App', __DIR__.'/..');
 $appLoader->register();

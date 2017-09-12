@@ -1,5 +1,5 @@
 <?php
-namespace OCFram;
+namespace blog;
 
 class Config extends ApplicationComponent
 {

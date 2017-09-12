@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/App/Backend/Config/" module="News" action="index" />
-  <route url="/parcour4/Sources_TP_App/" module="News" action="index" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/" module="News" action="index" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html" module="News" action="bio" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html" module="News" action="contacte" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/deconnection.html" module="News" action="deco" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/index.php" module="News" action="index" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/news-([0-9]+)\.html" module="News" action="show" vars="id"/>
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/commenter-([0-9]+)\.html" module="News" action="insertComment" vars="news" />
-  <route url="/parcour4/Sources_TP_App/tp-app-poo/Web/comment-signal-([0-9]+)\.html" module="News" action="signalComment" vars="id" />
+  <route url="/Sources_TP_App/tp-app-poo/App/Backend/Config/" module="News" action="index" />
+  <route url="/Sources_TP_App/" module="News" action="index" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/" module="News" action="index" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/biographie.html" module="News" action="bio" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/contacte.html" module="News" action="contacte" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/deconnection.html" module="News" action="deco" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/index.php" module="News" action="index" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/news-([0-9]+)\.html" module="News" action="show" vars="id"/>
+  <route url="/Sources_TP_App/tp-app-poo/Web/commenter-([0-9]+)\.html" module="News" action="insertComment" vars="news" />
+  <route url="/Sources_TP_App/tp-app-poo/Web/comment-signal-([0-9]+)\.html" module="News" action="signalComment" vars="id" />
 </routes>

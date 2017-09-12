@@ -4,7 +4,7 @@
         <button class="bouton" onclick="manageComment.openManage()"> articles </button>
     </div>
     <div id="manageArticle">
-        <p>Il y a actuellement <?= $nombreNews ?> articles. En voici la liste :</p>
+        <p>Il y a actuellement <?php echo $nombreNews - 2; ?> articles. En voici la liste :</p>
         <table>
             <tr>
                 <th class="none">Auteur</th>
@@ -18,7 +18,7 @@
             // todo ajouter une page contacte envoie mail
             foreach ($listeNews as $news)
             {
-                if($news['id'] != 1) // Le if pour empecher que des page importante soit supprimer
+                if($news['id'] != 1 && $news['id'] != 2) // Le if pour empecher que des page importante soit supprimer
                 {
                     echo ' <tr><td class="none">', $news['auteur'], '</td><td>', $news['titre'], '</td><td>le ', $news['dateAjout']->format('d/m/Y à H\hi'), '</td><td class="none">', ($news['dateAjout'] == $news['dateModif'] ? '-' : 'le ' . $news['dateModif']->format('d/m/Y à H\hi')), '</td><td><a href="news-update-', $news['id'], '.html"> <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> </a>
   
