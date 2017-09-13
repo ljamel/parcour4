@@ -1,15 +1,19 @@
 function Accueil() {
     this.menuHead = "fixe";
     this.lastScroll = 0;
+    this.nbClick;
 
     this.scroll = function () {
-        if (window.scrollY > 50) {
-            document.getElementById('menu-header').style.display = "none";
-            document.getElementById('menu-header-scrollBas').style.display = "block";
-        }
-        if (window.scrollY < 50) {
-            document.getElementById('menu-header').style.display = "block";
-            document.getElementById('menu-header-scrollBas').style.display = "none";
+
+        if (window.screen.width > 700) {
+            if (window.scrollY > 50) {
+                document.getElementById('menu-header').style.display = "none";
+                document.getElementById('menu-header-scrollBas').style.display = "block";
+            }
+            if (window.scrollY < 50) {
+                document.getElementById('menu-header').style.display = "block";
+                document.getElementById('menu-header-scrollBas').style.display = "none";
+            }
         }
 
     };
@@ -40,6 +44,19 @@ function Accueil() {
         document.getElementById('myModal2').style.visibility = "hidden";
     };
 
+
+    this.mobile = function() {
+            document.getElementById('deroul-menu').style.display = "block";
+            document.getElementById('menu-mobile').style.display = "none";
+            document.getElementById('menu-close').style.display = "block";
+    };
+
+    this.closeMenu = function () {
+        document.getElementById('deroul-menu').style.display = "none";
+        document.getElementById('menu-mobile').style.display = "block";
+        document.getElementById('menu-close').style.display = "none";
+    };
+
     this.$_GET = function (param) {
         var vars = {};
         window.location.href.replace( location.hash, '' ).replace(
@@ -60,7 +77,9 @@ var menuAccueil = new Accueil();
 var del = new Accueil();
 var suivant = new Accueil();
 var manageComment = new Accueil();
+
 window.addEventListener('scroll', menuAccueil.scroll, false);
+document.getElementById('menu-mobile').addEventListener('click', menuAccueil.mobile, false);
+document.getElementById('menu-close').addEventListener('click', menuAccueil.closeMenu, false);
 
 
-console.log( suivant.$_GET('pageSuivante'));

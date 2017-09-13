@@ -47,7 +47,7 @@
             <th>Contenu</th>
             <th class="none">Date d'ajout</th>
             <th class="none">Etat</th>
-            <th>Nombres de signalements</th>
+            <th>Signalé</th>
             <th>Action</th>
         </tr>
 

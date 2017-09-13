@@ -46,6 +46,25 @@
         </ul>
     </nav>
 </div>
+<div>
+    <nav>
+
+
+        <i id="menu-mobile" class="fa fa-bars fa-3x" aria-hidden="true"></i> <i id="menu-close" class="fa fa-times fa-3x none" aria-hidden="true"></i>
+
+
+        <ul id="deroul-menu" >
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> contacte </a></li>
+            <?php if ($user->isAuthenticated()) { ?>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
+            <?php } ?>
+
+        </ul>
+    </nav>
+</div>
 <div id="content-wrap">
     <section id="main">
         <?php if ($user->hasFlash()) echo '<p style="text-align: center;">', $user->getFlash(), '</p>'; ?>
