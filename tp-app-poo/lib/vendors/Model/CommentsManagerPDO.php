@@ -10,8 +10,8 @@ class CommentsManagerPDO extends CommentsManager
         $q = $this->dao->prepare('INSERT INTO comments SET news = :news, auteur = :auteur, contenu = :contenu, date = NOW()');
     
         $q->bindValue(':news', $comment->news(), \PDO::PARAM_INT);
-        $q->bindValue(':auteur', nl2br(htmlspecialchars($comment->auteur())));
-        $q->bindValue(':contenu', nl2br(htmlspecialchars($comment->contenu())));
+        $q->bindValue(':auteur', htmlspecialchars($comment->auteur()));
+        $q->bindValue(':contenu', htmlspecialchars($comment->contenu()));
     
         $q->execute();
     
