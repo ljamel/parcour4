@@ -18,10 +18,6 @@
 			<?php } ?>
 	</p>
 </div>
-<?php if ($news['dateAjout'] != $news['dateModif']) { ?>
-<p style="text-align: right;"><small><em>Modifiée le <?= $news['dateModif']->format('d/m/Y à H\hi') ?></em></small></p>
-<?php } ?>
-
 
 <?php
 if (empty($comments))

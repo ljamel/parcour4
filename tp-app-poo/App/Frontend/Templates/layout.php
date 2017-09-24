@@ -21,7 +21,7 @@
         </a>
     </h1>
     <nav>
-        <div class="title"><?= $news['auteur'] ?></div>
+        <div class="title"><?= isset($news['auteur']) ? $news['auteur'] : 'auteur' ?></div>
         <ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>

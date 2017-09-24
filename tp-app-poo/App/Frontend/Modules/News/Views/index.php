@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="./css/index.css" type="text/css" />
 <div class="titrePresentation">Présentation</div>
 <?php
-foreach ($preNews as $key => $news)
+foreach ($listeNews as $key => $news)
 {
 	if($news['id'] == 2) {
 ?>

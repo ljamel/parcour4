@@ -7,13 +7,30 @@ class NewsManagerPDO extends NewsManager
 {
     protected function add(News $news)
     {
-        $requete = $this->dao->prepare('INSERT INTO news SET auteur = :auteur, titre = :titre, contenu = :contenu, dateAjout = NOW(), dateModif = NOW()');
+        // Donne un nom unique pour chaque images uploader pour eviter que'une image soit ecraser
+        $md5 = md5(uniqid(rand(1,100000), true));
+        $name = $md5 . $_FILES["icone"]["name"];
+
+        $requete = $this->dao->prepare('INSERT INTO news SET auteur = :auteur, titre = :titre, contenu = :contenu, image = :image, dateAjout = NOW(), dateModif = NOW()');
     
         $requete->bindValue(':titre', htmlspecialchars($news->titre()));
         $requete->bindValue(':auteur', htmlspecialchars($news->auteur()));
         $requete->bindValue(':contenu', htmlspecialchars($news->contenu()));
-    
+        $requete->bindValue(':image', htmlspecialchars($name));
+
         $requete->execute();
+
+        $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png', 'ico', 'psd', 'pdf' );
+        //1. strrchr renvoie l'extension avec le point (« . »).
+        //2. substr(chaine,1) ignore le premier caractère de chaine.
+        //3. strtolower met l'extension en minuscules.
+        $extension_upload = strtolower( substr(strrchr($_FILES['icone']['name'], '.') ,1) );
+        if ( in_array($extension_upload,$extensions_valides) ) {
+            // Upload l'image dans un fichiers Web/images
+            $uploads_dir = dirname(dirname(dirname(dirname(__FILE__)))) . '/Web/images';
+            $tmp_name = $_FILES["icone"]["tmp_name"];
+            move_uploaded_file($tmp_name, "$uploads_dir/$name");
+        }
     }
 
     public function count()
