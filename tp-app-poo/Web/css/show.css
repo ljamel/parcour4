@@ -5,6 +5,9 @@
 .commentaireShow {
     width:100%;
 }
+img {
+    width: 300px;
+}
 @media screen and (max-width: 700px) {
     #main {
         margin: 5px;

@@ -25,9 +25,9 @@
         <ul> <!-- Penser a ajouter des images pour que l'écrivain puisse ajouter des images -->
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
-            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> contacte </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> Contact </a></li>
             <?php if ($user->isAuthenticated()) { ?>
-                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a></li>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
             <?php } ?>
         </ul>
@@ -38,9 +38,9 @@
         <ul>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
-            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> contacte </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> Contact </a></li>
             <?php if ($user->isAuthenticated()) { ?>
-                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a></li>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
             <?php } ?>
         </ul>
@@ -56,9 +56,9 @@
         <ul id="deroul-menu" >
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
-            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> contacte </a></li>
+            <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> Contact </a></li>
             <?php if ($user->isAuthenticated()) { ?>
-                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a></li>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
             <?php } ?>
 
@@ -87,8 +87,8 @@
 
         </div>
 
-        <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/deconnection.html"> Déconnection </a> |
-        <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Admin </a>
+        <?php if ($user->isAuthenticated()) { ?><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/deconnection.html"> Déconnection </a> |<?php } ?>
+        <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a>
 
     </section>
 </div>

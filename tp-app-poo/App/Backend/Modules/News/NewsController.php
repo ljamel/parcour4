@@ -8,9 +8,10 @@ use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \FormBuilder\NewsFormBuilder;
 use \blog\FormHandler;
-
+// NewsControlleur pour la parti backend administration
 class NewsController extends BackController
 {
+    // Suppression
   public function executeDelete(HTTPRequest $request)
   {
     $newsId = $request->getData('id');
@@ -41,6 +42,7 @@ class NewsController extends BackController
         $this->app->httpResponse()->redirect('.');
     }
 
+    // Crée une vue pour afficher le contenue de la bdd
   public function executeIndex(HTTPRequest $request)
   {
     $this->page->addVar('title', 'Page d\'administration');
@@ -65,6 +67,7 @@ class NewsController extends BackController
 
     $this->page->addVar('title', 'Modification d\'un article');
   }
+
 
   public function executeUpdateComment(HTTPRequest $request)
   {
@@ -100,6 +103,7 @@ class NewsController extends BackController
     $this->page->addVar('form', $form->createView());
   }
 
+  // Ajout d'articles
   public function processForm(HTTPRequest $request)
   {
     if ($request->method() == 'POST')

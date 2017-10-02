@@ -6,7 +6,7 @@ use \blog\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \blog\FormHandler;
-// TODO Ajouter une modération commentaire et un timestamp et un recaptcha qui empeche le spam
+// NewsController pour la parti frontend affichage et ajout de commentaires
 class NewsController extends BackController
 {
   public function executeIndex(HTTPRequest $request)
