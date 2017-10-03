@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./css/show.css" type="text/css" />
+<link rel="stylesheet" href="./css/show.css" type="text/css"/>
 <P></P>
 <?php
 /**

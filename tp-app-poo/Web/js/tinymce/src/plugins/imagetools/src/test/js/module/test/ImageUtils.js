@@ -1,78 +1,78 @@
 define(
-  'tinymce.plugins.imagetools.test.ImageUtils',
-  [
-    'ephox.agar.api.RawAssertions',
-    'ephox.agar.api.Step',
-    'ephox.agar.api.Waiter',
-    'ephox.katamari.api.Cell'
-  ],
-  function (RawAssertions, Step, Waiter, Cell) {
-    var sExecCommand = function (editor, cmd, value) {
-      return Step.sync(function () {
-        editor.execCommand(cmd, false, value);
-      });
-    };
-
-    var sLoadImage = function (editor, url) {
-      return Step.async(function (done) {
-        var img = new Image();
-
-        img.onload = function () {
-          editor.setContent('<p><img src="' + url + '" /></p>');
-          done();
+    'tinymce.plugins.imagetools.test.ImageUtils',
+    [
+        'ephox.agar.api.RawAssertions',
+        'ephox.agar.api.Step',
+        'ephox.agar.api.Waiter',
+        'ephox.katamari.api.Cell'
+    ],
+    function (RawAssertions, Step, Waiter, Cell) {
+        var sExecCommand = function (editor, cmd, value) {
+            return Step.sync(function () {
+                editor.execCommand(cmd, false, value);
+            });
         };
 
-        img.src = url;
-      });
-    };
+        var sLoadImage = function (editor, url) {
+            return Step.async(function (done) {
+                var img = new Image();
 
-    var sUploadImages = function (editor) {
-      return Step.async(function (done) {
-        editor.uploadImages(done);
-      });
-    };
+                img.onload = function () {
+                    editor.setContent('<p><img src="' + url + '" /></p>');
+                    done();
+                };
 
-    var sWaitForBlobImage = function (editor) {
-      return Waiter.sTryUntil('Did not find a blobimage', Step.sync(function () {
-        RawAssertions.assertEq('Should be one blob image', true, editor.dom.select('img[src^=blob]').length === 1);
-      }), 10, 3000);
-    };
-
-    var createStateContainer = function () {
-      var state = Cell(null);
-
-      var handler = function (url) {
-        return function (blobInfo, success) {
-          state.set({
-            blobInfo: blobInfo
-          });
-
-          success(url);
+                img.src = url;
+            });
         };
-      };
 
-      var sResetState = Step.sync(function () {
-        state.set(null);
-      });
+        var sUploadImages = function (editor) {
+            return Step.async(function (done) {
+                editor.uploadImages(done);
+            });
+        };
 
-      var sWaitForState = Waiter.sTryUntil('Did not get a state change', Step.sync(function () {
-        RawAssertions.assertEq('Should be true when we have the state', true, state.get() !== null);
-      }), 10, 3000);
+        var sWaitForBlobImage = function (editor) {
+            return Waiter.sTryUntil('Did not find a blobimage', Step.sync(function () {
+                RawAssertions.assertEq('Should be one blob image', true, editor.dom.select('img[src^=blob]').length === 1);
+            }), 10, 3000);
+        };
 
-      return {
-        get: state.get,
-        handler: handler,
-        sResetState: sResetState,
-        sWaitForState: sWaitForState
-      };
-    };
+        var createStateContainer = function () {
+            var state = Cell(null);
 
-    return {
-      sExecCommand: sExecCommand,
-      sLoadImage: sLoadImage,
-      sUploadImages: sUploadImages,
-      sWaitForBlobImage: sWaitForBlobImage,
-      createStateContainer: createStateContainer
-    };
-  }
+            var handler = function (url) {
+                return function (blobInfo, success) {
+                    state.set({
+                        blobInfo: blobInfo
+                    });
+
+                    success(url);
+                };
+            };
+
+            var sResetState = Step.sync(function () {
+                state.set(null);
+            });
+
+            var sWaitForState = Waiter.sTryUntil('Did not get a state change', Step.sync(function () {
+                RawAssertions.assertEq('Should be true when we have the state', true, state.get() !== null);
+            }), 10, 3000);
+
+            return {
+                get: state.get,
+                handler: handler,
+                sResetState: sResetState,
+                sWaitForState: sWaitForState
+            };
+        };
+
+        return {
+            sExecCommand: sExecCommand,
+            sLoadImage: sLoadImage,
+            sUploadImages: sUploadImages,
+            sWaitForBlobImage: sWaitForBlobImage,
+            createStateContainer: createStateContainer
+        };
+    }
 );

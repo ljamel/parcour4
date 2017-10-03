@@ -11,27 +11,27 @@
 /*eslint no-console:0 */
 
 define(
-  'tinymce.plugins.directionality.demo.Demo',
-  [
-    'tinymce.core.EditorManager',
-    'tinymce.plugins.code.Plugin',
-    'tinymce.plugins.directionality.Plugin',
-    'tinymce.themes.modern.Theme'
-  ],
-  function (EditorManager, CodePlugin, DirectionalityPlugin, ModernTheme) {
-    return function () {
-      CodePlugin();
-      DirectionalityPlugin();
-      ModernTheme();
+    'tinymce.plugins.directionality.demo.Demo',
+    [
+        'tinymce.core.EditorManager',
+        'tinymce.plugins.code.Plugin',
+        'tinymce.plugins.directionality.Plugin',
+        'tinymce.themes.modern.Theme'
+    ],
+    function (EditorManager, CodePlugin, DirectionalityPlugin, ModernTheme) {
+        return function () {
+            CodePlugin();
+            DirectionalityPlugin();
+            ModernTheme();
 
-      EditorManager.init({
-        selector: "textarea.tinymce",
-        theme: "modern",
-        skin_url: "../../../../../skins/lightgray/dist/lightgray",
-        plugins: "directionality code",
-        toolbar: "ltr rtl code",
-        height: 600
-      });
-    };
-  }
+            EditorManager.init({
+                selector: "textarea.tinymce",
+                theme: "modern",
+                skin_url: "../../../../../skins/lightgray/dist/lightgray",
+                plugins: "directionality code",
+                toolbar: "ltr rtl code",
+                height: 600
+            });
+        };
+    }
 );

@@ -16,22 +16,22 @@
  * @extends tinymce.ui.Container
  */
 define(
-  'tinymce.core.ui.MenuBar',
-  [
-    "tinymce.core.ui.Toolbar"
-  ],
-  function (Toolbar) {
-    "use strict";
+    'tinymce.core.ui.MenuBar',
+    [
+        "tinymce.core.ui.Toolbar"
+    ],
+    function (Toolbar) {
+        "use strict";
 
-    return Toolbar.extend({
-      Defaults: {
-        role: 'menubar',
-        containerCls: 'menubar',
-        ariaRoot: true,
-        defaults: {
-          type: 'menubutton'
-        }
-      }
-    });
-  }
+        return Toolbar.extend({
+            Defaults: {
+                role: 'menubar',
+                containerCls: 'menubar',
+                ariaRoot: true,
+                defaults: {
+                    type: 'menubutton'
+                }
+            }
+        });
+    }
 );

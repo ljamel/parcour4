@@ -1,31 +1,29 @@
 <?php
+
 namespace App\Backend;
 
 use \blog\Application;
 
 class BackendApplication extends Application
 {
-  public function __construct()
-  {
-    parent::__construct();
-
-    $this->name = 'Backend';
-  }
-
-  public function run()
-  {
-    if ($this->user->isAuthenticated())
+    public function __construct()
     {
-      $controller = $this->getController();
-    }
-    else
-    {
-      $controller = new Modules\Connexion\ConnexionController($this, 'Connexion', 'index');
+        parent::__construct();
+
+        $this->name = 'Backend';
     }
 
-    $controller->execute();
+    public function run()
+    {
+        if ($this->user->isAuthenticated()) {
+            $controller = $this->getController();
+        } else {
+            $controller = new Modules\Connexion\ConnexionController($this, 'Connexion', 'index');
+        }
 
-    $this->httpResponse->setPage($controller->page());
-    $this->httpResponse->send();
-  }
+        $controller->execute();
+
+        $this->httpResponse->setPage($controller->page());
+        $this->httpResponse->send();
+    }
 }

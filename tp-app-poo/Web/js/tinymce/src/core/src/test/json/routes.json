@@ -4,7 +4,6 @@
       "method": "get",
       "path": "/custom/json_rpc_ok"
     },
-
     "response": {
       "json": {
         "result": "Hello JSON-RPC",
@@ -13,13 +12,11 @@
       }
     }
   },
-
   {
     "request": {
       "method": "get",
       "path": "/custom/json_rpc_fail"
     },
-
     "response": {
       "json": {
         "result": null,
@@ -31,19 +28,16 @@
       }
     }
   },
-
   {
     "request": {
       "method": "get",
       "path": "/custom/404"
     },
-
     "response": {
       "status": 404,
       "json": {}
     }
   },
-
   {
     "request": {
       "method": "get",
@@ -54,7 +48,6 @@
       "json": {}
     }
   },
-
   {
     "request": {
       "method": "get",
@@ -65,8 +58,8 @@
       "json": {
         "error": {
           "type": "error"
-          }
         }
       }
+    }
   }
 ]

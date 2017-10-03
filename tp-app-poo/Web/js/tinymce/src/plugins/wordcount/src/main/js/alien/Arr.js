@@ -9,53 +9,52 @@
  */
 
 define(
-  'tinymce.plugins.wordcount.alien.Arr',
-  [
-  ],
-  function () {
-    var each = function (o, cb, s) {
-      var n, l;
+    'tinymce.plugins.wordcount.alien.Arr',
+    [],
+    function () {
+        var each = function (o, cb, s) {
+            var n, l;
 
-      if (!o) {
-        return 0;
-      }
-
-      s = s || o;
-
-      if (o.length !== undefined) {
-        // Indexed arrays, needed for Safari
-        for (n = 0, l = o.length; n < l; n++) {
-          if (cb.call(s, o[n], n, o) === false) {
-            return 0;
-          }
-        }
-      } else {
-        // Hashtables
-        for (n in o) {
-          if (o.hasOwnProperty(n)) {
-            if (cb.call(s, o[n], n, o) === false) {
-              return 0;
+            if (!o) {
+                return 0;
             }
-          }
-        }
-      }
 
-      return 1;
-    };
+            s = s || o;
 
-    var map = function (array, callback) {
-      var out = [];
+            if (o.length !== undefined) {
+                // Indexed arrays, needed for Safari
+                for (n = 0, l = o.length; n < l; n++) {
+                    if (cb.call(s, o[n], n, o) === false) {
+                        return 0;
+                    }
+                }
+            } else {
+                // Hashtables
+                for (n in o) {
+                    if (o.hasOwnProperty(n)) {
+                        if (cb.call(s, o[n], n, o) === false) {
+                            return 0;
+                        }
+                    }
+                }
+            }
 
-      each(array, function (item, index) {
-        out.push(callback(item, index, array));
-      });
+            return 1;
+        };
 
-      return out;
-    };
+        var map = function (array, callback) {
+            var out = [];
 
-    return {
-      each: each,
-      map: map
-    };
-  }
+            each(array, function (item, index) {
+                out.push(callback(item, index, array));
+            });
+
+            return out;
+        };
+
+        return {
+            each: each,
+            map: map
+        };
+    }
 );

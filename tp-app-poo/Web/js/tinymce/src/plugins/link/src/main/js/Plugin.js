@@ -9,22 +9,23 @@
  */
 
 define(
-  'tinymce.plugins.link.Plugin',
-  [
-    'tinymce.core.PluginManager',
-    'tinymce.plugins.link.core.Actions',
-    'tinymce.plugins.link.ui.Controls'
-  ],
-  function (PluginManager, Actions, Controls) {
-    PluginManager.add('link', function (editor) {
-      Controls.setupButtons(editor);
-      Controls.setupMenuItems(editor);
-      Controls.setupContextToolbars(editor);
-      Actions.setupGotoLinks(editor);
-      editor.addShortcut('Meta+K', '', Actions.openDialog(editor));
-      editor.addCommand('mceLink', Actions.openDialog(editor));
-    });
+    'tinymce.plugins.link.Plugin',
+    [
+        'tinymce.core.PluginManager',
+        'tinymce.plugins.link.core.Actions',
+        'tinymce.plugins.link.ui.Controls'
+    ],
+    function (PluginManager, Actions, Controls) {
+        PluginManager.add('link', function (editor) {
+            Controls.setupButtons(editor);
+            Controls.setupMenuItems(editor);
+            Controls.setupContextToolbars(editor);
+            Actions.setupGotoLinks(editor);
+            editor.addShortcut('Meta+K', '', Actions.openDialog(editor));
+            editor.addCommand('mceLink', Actions.openDialog(editor));
+        });
 
-    return function () { };
-  }
+        return function () {
+        };
+    }
 );

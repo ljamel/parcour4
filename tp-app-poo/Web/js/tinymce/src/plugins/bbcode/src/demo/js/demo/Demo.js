@@ -11,29 +11,29 @@
 /*eslint no-console:0, no-unused-vars: 0 */
 
 define(
-  'tinymce.plugins.bbcode.demo.Demo',
-  [
-    'tinymce.core.EditorManager',
-    'tinymce.plugins.bbcode.Plugin',
-    'tinymce.plugins.code.Plugin',
-    'tinymce.themes.modern.Theme'
-  ],
-  function (EditorManager, BbCodePlugin, CodePlugin, ModernTheme) {
-    BbCodePlugin();
-    CodePlugin();
-    ModernTheme();
+    'tinymce.plugins.bbcode.demo.Demo',
+    [
+        'tinymce.core.EditorManager',
+        'tinymce.plugins.bbcode.Plugin',
+        'tinymce.plugins.code.Plugin',
+        'tinymce.themes.modern.Theme'
+    ],
+    function (EditorManager, BbCodePlugin, CodePlugin, ModernTheme) {
+        BbCodePlugin();
+        CodePlugin();
+        ModernTheme();
 
-    return function () {
-      document.querySelector('.tinymce').value = '[b]bbcode plugin[/b]';
+        return function () {
+            document.querySelector('.tinymce').value = '[b]bbcode plugin[/b]';
 
-      EditorManager.init({
-        selector: "textarea.tinymce",
-        theme: "modern",
-        skin_url: "../../../../../skins/lightgray/dist/lightgray",
-        plugins: "bbcode code",
-        toolbar: "bbcode code",
-        height: 600
-      });
-    };
-  }
+            EditorManager.init({
+                selector: "textarea.tinymce",
+                theme: "modern",
+                skin_url: "../../../../../skins/lightgray/dist/lightgray",
+                plugins: "bbcode code",
+                toolbar: "bbcode code",
+                height: 600
+            });
+        };
+    }
 );

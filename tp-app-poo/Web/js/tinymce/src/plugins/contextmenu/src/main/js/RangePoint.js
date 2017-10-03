@@ -9,32 +9,32 @@
  */
 
 define(
-  'tinymce.plugins.contextmenu.RangePoint',
-  [
-    'ephox.katamari.api.Arr'
-  ],
-  function (Arr) {
-    var containsXY = function (clientRect, clientX, clientY) {
-      return (
-        clientX >= clientRect.left &&
-        clientX <= clientRect.right &&
-        clientY >= clientRect.top &&
-        clientY <= clientRect.bottom
-      );
-    };
+    'tinymce.plugins.contextmenu.RangePoint',
+    [
+        'ephox.katamari.api.Arr'
+    ],
+    function (Arr) {
+        var containsXY = function (clientRect, clientX, clientY) {
+            return (
+                clientX >= clientRect.left &&
+                clientX <= clientRect.right &&
+                clientY >= clientRect.top &&
+                clientY <= clientRect.bottom
+            );
+        };
 
-    var isXYWithinRange = function (clientX, clientY, range) {
-      if (range.collapsed) {
-        return false;
-      }
+        var isXYWithinRange = function (clientX, clientY, range) {
+            if (range.collapsed) {
+                return false;
+            }
 
-      return Arr.foldl(range.getClientRects(), function (state, rect) {
-        return state || containsXY(rect, clientX, clientY);
-      }, false);
-    };
+            return Arr.foldl(range.getClientRects(), function (state, rect) {
+                return state || containsXY(rect, clientX, clientY);
+            }, false);
+        };
 
-    return {
-      isXYWithinRange: isXYWithinRange
-    };
-  }
+        return {
+            isXYWithinRange: isXYWithinRange
+        };
+    }
 );

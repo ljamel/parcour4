@@ -1,23 +1,24 @@
 <?php
+
 namespace App\Frontend;
 
 use \blog\Application;
 
 class FrontendApplication extends Application
 {
-  public function __construct()
-  {
-    parent::__construct();	  
+    public function __construct()
+    {
+        parent::__construct();
 
-    $this->name = 'Frontend';
-  }
+        $this->name = 'Frontend';
+    }
 
-  public function run()
-  {
-    $controller = $this->getController();
-    $controller->execute();
+    public function run()
+    {
+        $controller = $this->getController();
+        $controller->execute();
 
-    $this->httpResponse->setPage($controller->page());
-    $this->httpResponse->send();
-  }
+        $this->httpResponse->setPage($controller->page());
+        $this->httpResponse->send();
+    }
 }

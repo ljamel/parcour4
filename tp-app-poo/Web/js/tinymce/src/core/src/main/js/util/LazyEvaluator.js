@@ -9,24 +9,24 @@
  */
 
 define(
-  'tinymce.core.util.LazyEvaluator',
-  [
-    'ephox.katamari.api.Option'
-  ],
-  function (Option) {
-    var evaluateUntil = function (fns, args) {
-      for (var i = 0; i < fns.length; i++) {
-        var result = fns[i].apply(null, args);
-        if (result.isSome()) {
-          return result;
-        }
-      }
+    'tinymce.core.util.LazyEvaluator',
+    [
+        'ephox.katamari.api.Option'
+    ],
+    function (Option) {
+        var evaluateUntil = function (fns, args) {
+            for (var i = 0; i < fns.length; i++) {
+                var result = fns[i].apply(null, args);
+                if (result.isSome()) {
+                    return result;
+                }
+            }
 
-      return Option.none();
-    };
+            return Option.none();
+        };
 
-    return {
-      evaluateUntil: evaluateUntil
-    };
-  }
+        return {
+            evaluateUntil: evaluateUntil
+        };
+    }
 );

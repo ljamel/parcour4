@@ -9,11 +9,11 @@
  */
 
 define(
-  '{$targetId}',
-  [
-    'global!tinymce.util.Tools.resolve'
-  ],
-  function (resolve) {
-    return resolve('{$globalId}');
-  }
+    '{$targetId}',
+    [
+        'global!tinymce.util.Tools.resolve'
+    ],
+    function (resolve) {
+        return resolve('{$globalId}');
+    }
 );

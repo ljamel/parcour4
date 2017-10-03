@@ -16,23 +16,23 @@
  * @extends tinymce.ui.FlowLayout
  */
 define(
-  'tinymce.core.ui.StackLayout',
-  [
-    "tinymce.core.ui.FlowLayout"
-  ],
-  function (FlowLayout) {
-    "use strict";
+    'tinymce.core.ui.StackLayout',
+    [
+        "tinymce.core.ui.FlowLayout"
+    ],
+    function (FlowLayout) {
+        "use strict";
 
-    return FlowLayout.extend({
-      Defaults: {
-        containerClass: 'stack-layout',
-        controlClass: 'stack-layout-item',
-        endClass: 'break'
-      },
+        return FlowLayout.extend({
+            Defaults: {
+                containerClass: 'stack-layout',
+                controlClass: 'stack-layout-item',
+                endClass: 'break'
+            },
 
-      isNative: function () {
-        return true;
-      }
-    });
-  }
+            isNative: function () {
+                return true;
+            }
+        });
+    }
 );

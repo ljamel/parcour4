@@ -15,32 +15,33 @@
  * @private
  */
 define(
-  'tinymce.plugins.print.Plugin',
-  [
-    'tinymce.core.PluginManager'
-  ],
-  function (PluginManager) {
-    PluginManager.add('print', function (editor) {
-      editor.addCommand('mcePrint', function () {
-        editor.getWin().print();
-      });
+    'tinymce.plugins.print.Plugin',
+    [
+        'tinymce.core.PluginManager'
+    ],
+    function (PluginManager) {
+        PluginManager.add('print', function (editor) {
+            editor.addCommand('mcePrint', function () {
+                editor.getWin().print();
+            });
 
-      editor.addButton('print', {
-        title: 'Print',
-        cmd: 'mcePrint'
-      });
+            editor.addButton('print', {
+                title: 'Print',
+                cmd: 'mcePrint'
+            });
 
-      editor.addShortcut('Meta+P', '', 'mcePrint');
+            editor.addShortcut('Meta+P', '', 'mcePrint');
 
-      editor.addMenuItem('print', {
-        text: 'Print',
-        cmd: 'mcePrint',
-        icon: 'print',
-        shortcut: 'Meta+P',
-        context: 'file'
-      });
-    });
+            editor.addMenuItem('print', {
+                text: 'Print',
+                cmd: 'mcePrint',
+                icon: 'print',
+                shortcut: 'Meta+P',
+                context: 'file'
+            });
+        });
 
-    return function () { };
-  }
+        return function () {
+        };
+    }
 );

@@ -11,27 +11,27 @@
 /*eslint no-console:0 */
 
 define(
-  'tinymce.plugins.visualchars.demo.Demo',
+    'tinymce.plugins.visualchars.demo.Demo',
 
-  [
-    'tinymce.core.EditorManager',
-    'tinymce.plugins.code.Plugin',
-    'tinymce.plugins.visualchars.Plugin',
-    'tinymce.themes.modern.Theme'
-  ],
-  function (EditorManager, CodePlugin, VisualCharsPlugin, ModernTheme) {
-    return function () {
-      CodePlugin();
-      VisualCharsPlugin();
-      ModernTheme();
+    [
+        'tinymce.core.EditorManager',
+        'tinymce.plugins.code.Plugin',
+        'tinymce.plugins.visualchars.Plugin',
+        'tinymce.themes.modern.Theme'
+    ],
+    function (EditorManager, CodePlugin, VisualCharsPlugin, ModernTheme) {
+        return function () {
+            CodePlugin();
+            VisualCharsPlugin();
+            ModernTheme();
 
-      EditorManager.init({
-        selector: "textarea.tinymce",
-        plugins: "visualchars code",
-        toolbar: "visualchars code",
-        skin_url: "../../../../../skins/lightgray/dist/lightgray",
-        height: 600
-      });
-    };
-  }
+            EditorManager.init({
+                selector: "textarea.tinymce",
+                plugins: "visualchars code",
+                toolbar: "visualchars code",
+                skin_url: "../../../../../skins/lightgray/dist/lightgray",
+                height: 600
+            });
+        };
+    }
 );

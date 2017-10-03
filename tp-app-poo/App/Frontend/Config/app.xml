@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <definitions>
-  <define var="nombre_news" value="5" />
-  <define var="pre_news" value="1" />
-  <define var="first_news" value="2" />
-  <define var="nombre_caracteres" value="500" />
+    <define var="nombre_news" value="5"/>
+    <define var="pre_news" value="1"/>
+    <define var="first_news" value="2"/>
+    <define var="nombre_caracteres" value="500"/>
 </definitions>

@@ -7,10 +7,11 @@
         <?= isset($title) ? $title : 'Blog' ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:description" content="" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta property="og:description" content=""/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
-    <link rel="stylesheet" href="./../Web/css/plume.css" type="text/css" />
+    <link rel="stylesheet" href="./../Web/css/plume.css" type="text/css"/>
 </head>
 
 <body>
@@ -28,7 +29,8 @@
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> Contact </a></li>
             <?php if ($user->isAuthenticated()) { ?>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a></li>
-                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a>
+                </li>
             <?php } ?>
         </ul>
     </nav>
@@ -41,7 +43,8 @@
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> Contact </a></li>
             <?php if ($user->isAuthenticated()) { ?>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a></li>
-                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a>
+                </li>
             <?php } ?>
         </ul>
     </nav>
@@ -50,16 +53,19 @@
     <nav>
 
 
-        <i id="menu-mobile" class="fa fa-bars fa-3x" aria-hidden="true"></i> <i id="menu-close" class="fa fa-times fa-3x none" aria-hidden="true"></i>
+        <i id="menu-mobile" class="fa fa-bars fa-3x" aria-hidden="true"></i> <i id="menu-close"
+                                                                                class="fa fa-times fa-3x none"
+                                                                                aria-hidden="true"></i>
 
 
-        <ul id="deroul-menu" >
+        <ul id="deroul-menu">
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/"> Accueil </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/biographie.html"> Biographie </a></li>
             <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/contacte.html"> Contact </a></li>
             <?php if ($user->isAuthenticated()) { ?>
                 <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a></li>
-                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a></li>
+                <li><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/news-insert.html"> Ajouter un article </a>
+                </li>
             <?php } ?>
 
         </ul>
@@ -77,17 +83,21 @@
         <a href=""><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
         <a href=""><i class="fa fa-youtube-square fa-2x" aria-hidden="true"></i></a>
         <a href=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-        <a href=""><i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i></a> <br />
+        <a href=""><i class="fa fa-pinterest-square fa-2x" aria-hidden="true"></i></a> <br/>
         <div class="colorfooter">
             <p class="footer-size">
 
-                <br />
-                <i title="Appelez-nous" class="footer-color-contact"> <i class="fa fa-phone-square" aria-hidden="true"></i> +33 00 00 00 00</i> <br /><br />
-                <a class="footer-color-contact" title="" href="" data-cached-title="Contactez-nous"><i class="fa fa-envelope" aria-hidden="true"></i>  mail@monsite.fr</a>
+                <br/>
+                <i title="Appelez-nous" class="footer-color-contact"> <i class="fa fa-phone-square"
+                                                                         aria-hidden="true"></i> +33 00 00 00 00</i>
+                <br/><br/>
+                <a class="footer-color-contact" title="" href="" data-cached-title="Contactez-nous"><i
+                            class="fa fa-envelope" aria-hidden="true"></i> mail@monsite.fr</a>
 
         </div>
 
-        <?php if ($user->isAuthenticated()) { ?><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/deconnection.html"> Déconnection </a> |<?php } ?>
+        <?php if ($user->isAuthenticated()) { ?><a href="/parcour4/Sources_TP_App/tp-app-poo/Web/deconnection.html">
+            Déconnection </a> |<?php } ?>
         <a href="/parcour4/Sources_TP_App/tp-app-poo/Web/admin/"> Administration </a>
 
     </section>

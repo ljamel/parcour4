@@ -9,18 +9,17 @@
  */
 
 define(
-  'tinymce.core.text.Bidi',
-  [
-  ],
-  function () {
-    var strongRtl = /[\u0591-\u07FF\uFB1D-\uFDFF\uFE70-\uFEFC]/;
+    'tinymce.core.text.Bidi',
+    [],
+    function () {
+        var strongRtl = /[\u0591-\u07FF\uFB1D-\uFDFF\uFE70-\uFEFC]/;
 
-    var hasStrongRtl = function (text) {
-      return strongRtl.test(text);
-    };
+        var hasStrongRtl = function (text) {
+            return strongRtl.test(text);
+        };
 
-    return {
-      hasStrongRtl: hasStrongRtl
-    };
-  }
+        return {
+            hasStrongRtl: hasStrongRtl
+        };
+    }
 );

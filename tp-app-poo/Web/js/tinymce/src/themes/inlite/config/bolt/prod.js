@@ -1,5 +1,5 @@
 configure({
-  configs: [
-    '../../../../../config/bolt/prod.theme.js'
-  ]
+    configs: [
+        '../../../../../config/bolt/prod.theme.js'
+    ]
 });

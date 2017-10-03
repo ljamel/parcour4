@@ -14,15 +14,14 @@
  * Fake Sizzle using jQuery.
  */
 define(
-  'tinymce.core.dom.Sizzle',
-  [
-  ],
-  function () {
-    // Detect if jQuery is loaded
-    if (!window.jQuery) {
-      throw new Error("Load jQuery first");
-    }
+    'tinymce.core.dom.Sizzle',
+    [],
+    function () {
+        // Detect if jQuery is loaded
+        if (!window.jQuery) {
+            throw new Error("Load jQuery first");
+        }
 
-    return jQuery.find;
-  }
+        return jQuery.find;
+    }
 );

@@ -9,190 +9,191 @@
  */
 
 define(
-  'tinymce.plugins.media.Plugin',
-  [
-    'tinymce.core.html.Node',
-    'tinymce.core.PluginManager',
-    'tinymce.core.util.Tools',
-    'tinymce.plugins.media.core.Nodes',
-    'tinymce.plugins.media.core.Sanitize',
-    'tinymce.plugins.media.core.UpdateHtml',
-    'tinymce.plugins.media.ui.Dialog'
-  ],
-  function (Node, PluginManager, Tools, Nodes, Sanitize, UpdateHtml, Dialog) {
-    var Plugin = function (editor) {
-      editor.on('ResolveName', function (e) {
-        var name;
+    'tinymce.plugins.media.Plugin',
+    [
+        'tinymce.core.html.Node',
+        'tinymce.core.PluginManager',
+        'tinymce.core.util.Tools',
+        'tinymce.plugins.media.core.Nodes',
+        'tinymce.plugins.media.core.Sanitize',
+        'tinymce.plugins.media.core.UpdateHtml',
+        'tinymce.plugins.media.ui.Dialog'
+    ],
+    function (Node, PluginManager, Tools, Nodes, Sanitize, UpdateHtml, Dialog) {
+        var Plugin = function (editor) {
+            editor.on('ResolveName', function (e) {
+                var name;
 
-        if (e.target.nodeType === 1 && (name = e.target.getAttribute("data-mce-object"))) {
-          e.name = name;
-        }
-      });
-
-      editor.on('preInit', function () {
-        // Make sure that any messy HTML is retained inside these
-        var specialElements = editor.schema.getSpecialElements();
-        Tools.each('video audio iframe object'.split(' '), function (name) {
-          specialElements[name] = new RegExp('<\/' + name + '[^>]*>', 'gi');
-        });
-
-        // Allow elements
-        //editor.schema.addValidElements(
-        //  'object[id|style|width|height|classid|codebase|*],embed[id|style|width|height|type|src|*],video[*],audio[*]'
-        //);
-
-        // Set allowFullscreen attribs as boolean
-        var boolAttrs = editor.schema.getBoolAttrs();
-        Tools.each('webkitallowfullscreen mozallowfullscreen allowfullscreen'.split(' '), function (name) {
-          boolAttrs[name] = {};
-        });
-
-        // Converts iframe, video etc into placeholder images
-        editor.parser.addNodeFilter('iframe,video,audio,object,embed,script',
-          Nodes.placeHolderConverter(editor));
-
-        // Replaces placeholder images with real elements for video, object, iframe etc
-        editor.serializer.addAttributeFilter('data-mce-object', function (nodes, name) {
-          var i = nodes.length;
-          var node;
-          var realElm;
-          var ai;
-          var attribs;
-          var innerHtml;
-          var innerNode;
-          var realElmName;
-          var className;
-
-          while (i--) {
-            node = nodes[i];
-            if (!node.parent) {
-              continue;
-            }
-
-            realElmName = node.attr(name);
-            realElm = new Node(realElmName, 1);
-
-            // Add width/height to everything but audio
-            if (realElmName !== "audio" && realElmName !== "script") {
-              className = node.attr('class');
-              if (className && className.indexOf('mce-preview-object') !== -1) {
-                realElm.attr({
-                  width: node.firstChild.attr('width'),
-                  height: node.firstChild.attr('height')
-                });
-              } else {
-                realElm.attr({
-                  width: node.attr('width'),
-                  height: node.attr('height')
-                });
-              }
-            }
-
-            realElm.attr({
-              style: node.attr('style')
+                if (e.target.nodeType === 1 && (name = e.target.getAttribute("data-mce-object"))) {
+                    e.name = name;
+                }
             });
 
-            // Unprefix all placeholder attributes
-            attribs = node.attributes;
-            ai = attribs.length;
-            while (ai--) {
-              var attrName = attribs[ai].name;
+            editor.on('preInit', function () {
+                // Make sure that any messy HTML is retained inside these
+                var specialElements = editor.schema.getSpecialElements();
+                Tools.each('video audio iframe object'.split(' '), function (name) {
+                    specialElements[name] = new RegExp('<\/' + name + '[^>]*>', 'gi');
+                });
 
-              if (attrName.indexOf('data-mce-p-') === 0) {
-                realElm.attr(attrName.substr(11), attribs[ai].value);
-              }
-            }
+                // Allow elements
+                //editor.schema.addValidElements(
+                //  'object[id|style|width|height|classid|codebase|*],embed[id|style|width|height|type|src|*],video[*],audio[*]'
+                //);
 
-            if (realElmName === "script") {
-              realElm.attr('type', 'text/javascript');
-            }
+                // Set allowFullscreen attribs as boolean
+                var boolAttrs = editor.schema.getBoolAttrs();
+                Tools.each('webkitallowfullscreen mozallowfullscreen allowfullscreen'.split(' '), function (name) {
+                    boolAttrs[name] = {};
+                });
 
-            // Inject innerhtml
-            innerHtml = node.attr('data-mce-html');
-            if (innerHtml) {
-              innerNode = new Node('#text', 3);
-              innerNode.raw = true;
-              innerNode.value = Sanitize.sanitize(editor, unescape(innerHtml));
-              realElm.append(innerNode);
-            }
+                // Converts iframe, video etc into placeholder images
+                editor.parser.addNodeFilter('iframe,video,audio,object,embed,script',
+                    Nodes.placeHolderConverter(editor));
 
-            node.replace(realElm);
-          }
-        });
-      });
+                // Replaces placeholder images with real elements for video, object, iframe etc
+                editor.serializer.addAttributeFilter('data-mce-object', function (nodes, name) {
+                    var i = nodes.length;
+                    var node;
+                    var realElm;
+                    var ai;
+                    var attribs;
+                    var innerHtml;
+                    var innerNode;
+                    var realElmName;
+                    var className;
 
-      editor.on('click keyup', function () {
-        var selectedNode = editor.selection.getNode();
+                    while (i--) {
+                        node = nodes[i];
+                        if (!node.parent) {
+                            continue;
+                        }
 
-        if (selectedNode && editor.dom.hasClass(selectedNode, 'mce-preview-object')) {
-          if (editor.dom.getAttrib(selectedNode, 'data-mce-selected')) {
-            selectedNode.setAttribute('data-mce-selected', '2');
-          }
-        }
-      });
+                        realElmName = node.attr(name);
+                        realElm = new Node(realElmName, 1);
 
-      editor.on('ObjectSelected', function (e) {
-        var objectType = e.target.getAttribute('data-mce-object');
+                        // Add width/height to everything but audio
+                        if (realElmName !== "audio" && realElmName !== "script") {
+                            className = node.attr('class');
+                            if (className && className.indexOf('mce-preview-object') !== -1) {
+                                realElm.attr({
+                                    width: node.firstChild.attr('width'),
+                                    height: node.firstChild.attr('height')
+                                });
+                            } else {
+                                realElm.attr({
+                                    width: node.attr('width'),
+                                    height: node.attr('height')
+                                });
+                            }
+                        }
 
-        if (objectType === "audio" || objectType === "script") {
-          e.preventDefault();
-        }
-      });
+                        realElm.attr({
+                            style: node.attr('style')
+                        });
 
-      editor.on('objectResized', function (e) {
-        var target = e.target;
-        var html;
+                        // Unprefix all placeholder attributes
+                        attribs = node.attributes;
+                        ai = attribs.length;
+                        while (ai--) {
+                            var attrName = attribs[ai].name;
 
-        if (target.getAttribute('data-mce-object')) {
-          html = target.getAttribute('data-mce-html');
-          if (html) {
-            html = unescape(html);
-            target.setAttribute('data-mce-html', escape(
-              UpdateHtml.updateHtml(html, {
-                width: e.width,
-                height: e.height
-              })
-            ));
-          }
-        }
-      });
+                            if (attrName.indexOf('data-mce-p-') === 0) {
+                                realElm.attr(attrName.substr(11), attribs[ai].value);
+                            }
+                        }
 
-      this.showDialog = function () {
-        Dialog.showDialog(editor);
-      };
+                        if (realElmName === "script") {
+                            realElm.attr('type', 'text/javascript');
+                        }
 
-      editor.addButton('media', {
-        tooltip: 'Insert/edit media',
-        onclick: this.showDialog,
-        stateSelector: ['img[data-mce-object]', 'span[data-mce-object]', 'div[data-ephox-embed-iri]']
-      });
+                        // Inject innerhtml
+                        innerHtml = node.attr('data-mce-html');
+                        if (innerHtml) {
+                            innerNode = new Node('#text', 3);
+                            innerNode.raw = true;
+                            innerNode.value = Sanitize.sanitize(editor, unescape(innerHtml));
+                            realElm.append(innerNode);
+                        }
 
-      editor.addMenuItem('media', {
-        icon: 'media',
-        text: 'Media',
-        onclick: this.showDialog,
-        context: 'insert',
-        prependToContext: true
-      });
+                        node.replace(realElm);
+                    }
+                });
+            });
 
-      editor.on('setContent', function () {
-        // TODO: This shouldn't be needed there should be a way to mark bogus
-        // elements so they are never removed except external save
-        editor.$('span.mce-preview-object').each(function (index, elm) {
-          var $elm = editor.$(elm);
+            editor.on('click keyup', function () {
+                var selectedNode = editor.selection.getNode();
 
-          if ($elm.find('span.mce-shim', elm).length === 0) {
-            $elm.append('<span class="mce-shim"></span>');
-          }
-        });
-      });
+                if (selectedNode && editor.dom.hasClass(selectedNode, 'mce-preview-object')) {
+                    if (editor.dom.getAttrib(selectedNode, 'data-mce-selected')) {
+                        selectedNode.setAttribute('data-mce-selected', '2');
+                    }
+                }
+            });
 
-      editor.addCommand('mceMedia', this.showDialog);
-    };
+            editor.on('ObjectSelected', function (e) {
+                var objectType = e.target.getAttribute('data-mce-object');
 
-    PluginManager.add('media', Plugin);
+                if (objectType === "audio" || objectType === "script") {
+                    e.preventDefault();
+                }
+            });
 
-    return function () { };
-  }
+            editor.on('objectResized', function (e) {
+                var target = e.target;
+                var html;
+
+                if (target.getAttribute('data-mce-object')) {
+                    html = target.getAttribute('data-mce-html');
+                    if (html) {
+                        html = unescape(html);
+                        target.setAttribute('data-mce-html', escape(
+                            UpdateHtml.updateHtml(html, {
+                                width: e.width,
+                                height: e.height
+                            })
+                        ));
+                    }
+                }
+            });
+
+            this.showDialog = function () {
+                Dialog.showDialog(editor);
+            };
+
+            editor.addButton('media', {
+                tooltip: 'Insert/edit media',
+                onclick: this.showDialog,
+                stateSelector: ['img[data-mce-object]', 'span[data-mce-object]', 'div[data-ephox-embed-iri]']
+            });
+
+            editor.addMenuItem('media', {
+                icon: 'media',
+                text: 'Media',
+                onclick: this.showDialog,
+                context: 'insert',
+                prependToContext: true
+            });
+
+            editor.on('setContent', function () {
+                // TODO: This shouldn't be needed there should be a way to mark bogus
+                // elements so they are never removed except external save
+                editor.$('span.mce-preview-object').each(function (index, elm) {
+                    var $elm = editor.$(elm);
+
+                    if ($elm.find('span.mce-shim', elm).length === 0) {
+                        $elm.append('<span class="mce-shim"></span>');
+                    }
+                });
+            });
+
+            editor.addCommand('mceMedia', this.showDialog);
+        };
+
+        PluginManager.add('media', Plugin);
+
+        return function () {
+        };
+    }
 );
 

@@ -11,30 +11,30 @@
 /*eslint no-console:0 */
 
 define(
-  'tinymce.plugins.importcss.demo.Demo',
-  [
-    'tinymce.core.EditorManager',
-    'tinymce.plugins.code.Plugin',
-    'tinymce.plugins.importcss.Plugin',
-    'tinymce.themes.modern.Theme'
-  ],
-  function (EditorManager, CodePlugin, ImportCssPlugin, ModernTheme) {
-    return function () {
-      CodePlugin();
-      ImportCssPlugin();
-      ModernTheme();
+    'tinymce.plugins.importcss.demo.Demo',
+    [
+        'tinymce.core.EditorManager',
+        'tinymce.plugins.code.Plugin',
+        'tinymce.plugins.importcss.Plugin',
+        'tinymce.themes.modern.Theme'
+    ],
+    function (EditorManager, CodePlugin, ImportCssPlugin, ModernTheme) {
+        return function () {
+            CodePlugin();
+            ImportCssPlugin();
+            ModernTheme();
 
-      document.querySelector('.tinymce').value = 'The format menu should show "red"';
+            document.querySelector('.tinymce').value = 'The format menu should show "red"';
 
-      EditorManager.init({
-        selector: "textarea.tinymce",
-        theme: "modern",
-        skin_url: "../../../../../skins/lightgray/dist/lightgray",
-        plugins: "importcss code",
-        toolbar: "styleselect code",
-        height: 600,
-        content_css: '../css/rules.css'
-      });
-    };
-  }
+            EditorManager.init({
+                selector: "textarea.tinymce",
+                theme: "modern",
+                skin_url: "../../../../../skins/lightgray/dist/lightgray",
+                plugins: "importcss code",
+                toolbar: "styleselect code",
+                height: 600,
+                content_css: '../css/rules.css'
+            });
+        };
+    }
 );

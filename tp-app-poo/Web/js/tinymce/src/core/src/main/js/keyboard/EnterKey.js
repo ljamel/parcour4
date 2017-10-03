@@ -9,46 +9,46 @@
  */
 
 define(
-  'tinymce.core.keyboard.EnterKey',
-  [
-    'tinymce.core.keyboard.InsertNewLine',
-    'tinymce.core.util.VK'
-  ],
-  function (InsertNewLine, VK) {
-    var endTypingLevel = function (undoManager) {
-      if (undoManager.typing) {
-        undoManager.typing = false;
-        undoManager.add();
-      }
-    };
+    'tinymce.core.keyboard.EnterKey',
+    [
+        'tinymce.core.keyboard.InsertNewLine',
+        'tinymce.core.util.VK'
+    ],
+    function (InsertNewLine, VK) {
+        var endTypingLevel = function (undoManager) {
+            if (undoManager.typing) {
+                undoManager.typing = false;
+                undoManager.add();
+            }
+        };
 
-    var handleEnterKeyEvent = function (editor, event) {
-      if (event.isDefaultPrevented()) {
-        return;
-      }
+        var handleEnterKeyEvent = function (editor, event) {
+            if (event.isDefaultPrevented()) {
+                return;
+            }
 
-      event.preventDefault();
+            event.preventDefault();
 
-      endTypingLevel(editor.undoManager);
-      editor.undoManager.transact(function () {
-        if (editor.selection.isCollapsed() === false) {
-          editor.execCommand('Delete');
-        }
+            endTypingLevel(editor.undoManager);
+            editor.undoManager.transact(function () {
+                if (editor.selection.isCollapsed() === false) {
+                    editor.execCommand('Delete');
+                }
 
-        InsertNewLine.insert(editor, event);
-      });
-    };
+                InsertNewLine.insert(editor, event);
+            });
+        };
 
-    var setup = function (editor) {
-      editor.on('keydown', function (event) {
-        if (event.keyCode === VK.ENTER) {
-          handleEnterKeyEvent(editor, event);
-        }
-      });
-    };
+        var setup = function (editor) {
+            editor.on('keydown', function (event) {
+                if (event.keyCode === VK.ENTER) {
+                    handleEnterKeyEvent(editor, event);
+                }
+            });
+        };
 
-    return {
-      setup: setup
-    };
-  }
+        return {
+            setup: setup
+        };
+    }
 );

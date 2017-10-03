@@ -1,5 +1,5 @@
 configure({
-  configs: [
-    './test.js'
-  ]
+    configs: [
+        './test.js'
+    ]
 });

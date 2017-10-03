@@ -1,10 +1,10 @@
 <h2>Modifier une news</h2>
 <form action="" method="post">
-  <p>
-    <?= htmlspecialchars_decode($form) ?>
+    <p>
+        <?= htmlspecialchars_decode($form) ?>
 
-    <input class="bouton" type="submit" value="Modifier" />
-  </p>
+        <input class="bouton" type="submit" value="Modifier"/>
+    </p>
 </form>
 
 <!-- Pour que tinymce soit activer que pour la page ajout article et modifier article -->

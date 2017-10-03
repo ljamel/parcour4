@@ -1,4 +1,5 @@
 <?php
+
 namespace Model;
 
 use \blog\Manager;
@@ -6,64 +7,61 @@ use \Entity\News;
 
 abstract class NewsManager extends Manager
 {
-  /**
-   * Méthode permettant d'ajouter une news.
-   * @param $news News La news à ajouter
-   * @return void
-   */
-  abstract protected function add(News $news);
-  
-  /**
-   * Méthode permettant d'enregistrer une news.
-   * @param $news News la news à enregistrer
-   * @see self::add()
-   * @see self::modify()
-   * @return void
-   */
-  public function save(News $news)
-  {
-    if ($news->isValid())
+    /**
+     * Méthode permettant d'ajouter une news.
+     * @param $news News La news à ajouter
+     * @return void
+     */
+    abstract protected function add(News $news);
+
+    /**
+     * Méthode permettant d'enregistrer une news.
+     * @param $news News la news à enregistrer
+     * @see self::add()
+     * @see self::modify()
+     * @return void
+     */
+    public function save(News $news)
     {
-      $news->isNew() ? $this->add($news) : $this->modify($news);
+        if ($news->isValid()) {
+            $news->isNew() ? $this->add($news) : $this->modify($news);
+        } else {
+            throw new \RuntimeException('Tous les champs doivent être remplies pour pouvoir ajouté un article');
+        }
     }
-    else
-    {
-      throw new \RuntimeException('Tous les champs doivent être remplies pour pouvoir ajouté un article');
-    }
-  }
 
-  /**
-   * Méthode renvoyant le nombre de news total.
-   * @return int
-   */
-  abstract public function count();
+    /**
+     * Méthode renvoyant le nombre de news total.
+     * @return int
+     */
+    abstract public function count();
 
-  /**
-   * Méthode permettant de supprimer une news.
-   * @param $id int L'identifiant de la news à supprimer
-   * @return void
-   */
-  abstract public function delete($id);
+    /**
+     * Méthode permettant de supprimer une news.
+     * @param $id int L'identifiant de la news à supprimer
+     * @return void
+     */
+    abstract public function delete($id);
 
-  /**
-   * Méthode retournant une liste de news demandée.
-   * @param $debut int La première news à sélectionner
-   * @param $limite int Le nombre de news à sélectionner
-   * @return array La liste des news. Chaque entrée est une instance de News.
-   */
-  abstract public function getList($debut = -1, $limite = -1);
-  
-  /**
-   * Méthode retournant une news précise.
-   * @param $id int L'identifiant de la news à récupérer
-   * @return News La news demandée
-   */
-  abstract public function getUnique($id);
+    /**
+     * Méthode retournant une liste de news demandée.
+     * @param $debut int La première news à sélectionner
+     * @param $limite int Le nombre de news à sélectionner
+     * @return array La liste des news. Chaque entrée est une instance de News.
+     */
+    abstract public function getList($debut = -1, $limite = -1);
 
-  /**
-   * Méthode permettant de modifier une news.
-   * @param $news news la news à modifier
-   * @return void
-   */
-  abstract protected function modify(News $news);
+    /**
+     * Méthode retournant une news précise.
+     * @param $id int L'identifiant de la news à récupérer
+     * @return News La news demandée
+     */
+    abstract public function getUnique($id);
+
+    /**
+     * Méthode permettant de modifier une news.
+     * @param $news news la news à modifier
+     * @return void
+     */
+    abstract protected function modify(News $news);
 }

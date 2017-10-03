@@ -16,18 +16,18 @@
  * @extends tinymce.ui.Checkbox
  */
 define(
-  'tinymce.core.ui.Radio',
-  [
-    "tinymce.core.ui.Checkbox"
-  ],
-  function (Checkbox) {
-    "use strict";
+    'tinymce.core.ui.Radio',
+    [
+        "tinymce.core.ui.Checkbox"
+    ],
+    function (Checkbox) {
+        "use strict";
 
-    return Checkbox.extend({
-      Defaults: {
-        classes: "radio",
-        role: "radio"
-      }
-    });
-  }
+        return Checkbox.extend({
+            Defaults: {
+                classes: "radio",
+                role: "radio"
+            }
+        });
+    }
 );

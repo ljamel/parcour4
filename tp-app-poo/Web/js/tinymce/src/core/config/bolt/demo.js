@@ -1,5 +1,5 @@
 configure({
-  configs: [
-    '../../../../config/bolt/demo.js'
-  ]
+    configs: [
+        '../../../../config/bolt/demo.js'
+    ]
 });

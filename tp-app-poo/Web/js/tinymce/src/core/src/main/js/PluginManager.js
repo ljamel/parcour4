@@ -9,11 +9,11 @@
  */
 
 define(
-  'tinymce.core.PluginManager',
-  [
-    'tinymce.core.AddOnManager'
-  ],
-  function (AddOnManager) {
-    return AddOnManager.PluginManager;
-  }
+    'tinymce.core.PluginManager',
+    [
+        'tinymce.core.AddOnManager'
+    ],
+    function (AddOnManager) {
+        return AddOnManager.PluginManager;
+    }
 );

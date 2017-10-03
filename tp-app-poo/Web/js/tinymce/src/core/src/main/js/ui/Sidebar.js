@@ -15,19 +15,17 @@
  * @private
  */
 define(
-  'tinymce.core.ui.Sidebar',
-  [
-  ],
-  function (
-  ) {
-    var add = function (editor, name, settings) {
-      var sidebars = editor.sidebars ? editor.sidebars : [];
-      sidebars.push({ name: name, settings: settings });
-      editor.sidebars = sidebars;
-    };
+    'tinymce.core.ui.Sidebar',
+    [],
+    function () {
+        var add = function (editor, name, settings) {
+            var sidebars = editor.sidebars ? editor.sidebars : [];
+            sidebars.push({name: name, settings: settings});
+            editor.sidebars = sidebars;
+        };
 
-    return {
-      add: add
-    };
-  }
+        return {
+            add: add
+        };
+    }
 );

@@ -1,8 +1,6 @@
 configure({
-  configs: [
-    './test.js'
-  ],
-  sources: [
-
-  ]
+    configs: [
+        './test.js'
+    ],
+    sources: []
 });

@@ -1,4 +1,5 @@
 <?php
+
 namespace Entity;
 
 use \blog\Entity;
@@ -29,8 +30,7 @@ class News extends Entity
 
     public function setAuteur($auteur)
     {
-        if (!is_string($auteur) || empty($auteur))
-        {
+        if (!is_string($auteur) || empty($auteur)) {
             $this->erreurs[] = self::AUTEUR_INVALIDE;
         }
 
@@ -39,17 +39,16 @@ class News extends Entity
 
     public function setTitre($titre)
     {
-        if (!is_string($titre) || empty($titre))
-        {
+        if (!is_string($titre) || empty($titre)) {
             $this->erreurs[] = self::TITRE_INVALIDE;
         }
 
         $this->titre = $titre;
     }
+
     public function setImage($image)
     {
-        if (!is_string($image) || empty($image))
-        {
+        if (!is_string($image) || empty($image)) {
             $this->erreurs[] = self::IMAGE_INVALIDE;
         }
 
@@ -58,8 +57,7 @@ class News extends Entity
 
     public function setEtat($etat)
     {
-        if (!is_string($etat) || empty($etat))
-        {
+        if (!is_string($etat) || empty($etat)) {
             $this->erreurs[] = self::IMAGE_INVALIDE;
         }
         $this->etat = $etat;
@@ -67,8 +65,7 @@ class News extends Entity
 
     public function setContenu($contenu)
     {
-        if (!is_string($contenu) || empty($contenu))
-        {
+        if (!is_string($contenu) || empty($contenu)) {
             $this->erreurs[] = self::CONTENU_INVALIDE;
         }
 
@@ -101,6 +98,7 @@ class News extends Entity
     {
         return $this->titre;
     }
+
     public function image()
     {
         return $this->image;

@@ -9,27 +9,27 @@
  */
 
 define(
-  'tinymce.themes.modern.ui.ProgressState',
-  [
-    'tinymce.core.ui.Throbber'
-  ],
-  function (Throbber) {
-    var setup = function (editor, theme) {
-      var throbber;
+    'tinymce.themes.modern.ui.ProgressState',
+    [
+        'tinymce.core.ui.Throbber'
+    ],
+    function (Throbber) {
+        var setup = function (editor, theme) {
+            var throbber;
 
-      editor.on('ProgressState', function (e) {
-        throbber = throbber || new Throbber(theme.panel.getEl('body'));
+            editor.on('ProgressState', function (e) {
+                throbber = throbber || new Throbber(theme.panel.getEl('body'));
 
-        if (e.state) {
-          throbber.show(e.time);
-        } else {
-          throbber.hide();
-        }
-      });
-    };
+                if (e.state) {
+                    throbber.show(e.time);
+                } else {
+                    throbber.hide();
+                }
+            });
+        };
 
-    return {
-      setup: setup
-    };
-  }
+        return {
+            setup: setup
+        };
+    }
 );

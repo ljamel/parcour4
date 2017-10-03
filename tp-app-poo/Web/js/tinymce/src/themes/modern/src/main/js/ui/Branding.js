@@ -9,71 +9,71 @@
  */
 
 define(
-  'tinymce.themes.modern.ui.Branding',
-  [
-    'tinymce.core.dom.DOMUtils'
-  ],
-  function (DOMUtils) {
-    var DOM = DOMUtils.DOM;
+    'tinymce.themes.modern.ui.Branding',
+    [
+        'tinymce.core.dom.DOMUtils'
+    ],
+    function (DOMUtils) {
+        var DOM = DOMUtils.DOM;
 
-    var reposition = function (editor, poweredByElm, hasStatusbar) {
-      return function () {
-        var iframeWidth = editor.getContentAreaContainer().querySelector('iframe').offsetWidth;
-        var scrollbarWidth = Math.max(iframeWidth - editor.getDoc().documentElement.offsetWidth, 0);
+        var reposition = function (editor, poweredByElm, hasStatusbar) {
+            return function () {
+                var iframeWidth = editor.getContentAreaContainer().querySelector('iframe').offsetWidth;
+                var scrollbarWidth = Math.max(iframeWidth - editor.getDoc().documentElement.offsetWidth, 0);
 
-        DOM.setStyle(poweredByElm, 'right', scrollbarWidth + 'px');
-        if (hasStatusbar) {
-          DOM.setStyle(poweredByElm, 'top', '-16px');
-        } else {
-          DOM.setStyle(poweredByElm, 'bottom', '1px');
-        }
-      };
-    };
+                DOM.setStyle(poweredByElm, 'right', scrollbarWidth + 'px');
+                if (hasStatusbar) {
+                    DOM.setStyle(poweredByElm, 'top', '-16px');
+                } else {
+                    DOM.setStyle(poweredByElm, 'bottom', '1px');
+                }
+            };
+        };
 
-    var hide = function (poweredByElm) {
-      return function () {
-        DOM.hide(poweredByElm);
-      };
-    };
+        var hide = function (poweredByElm) {
+            return function () {
+                DOM.hide(poweredByElm);
+            };
+        };
 
-    var setupReposition = function (editor, poweredByElm, hasStatusbar) {
-      reposition(editor, poweredByElm, hasStatusbar)();
-      editor.on('NodeChange ResizeEditor', reposition(editor, poweredByElm, hasStatusbar));
-    };
+        var setupReposition = function (editor, poweredByElm, hasStatusbar) {
+            reposition(editor, poweredByElm, hasStatusbar)();
+            editor.on('NodeChange ResizeEditor', reposition(editor, poweredByElm, hasStatusbar));
+        };
 
-    var appendToStatusbar = function (editor, poweredByElm, statusbarElm) {
-      statusbarElm.appendChild(poweredByElm);
-      setupReposition(editor, poweredByElm, true);
-    };
+        var appendToStatusbar = function (editor, poweredByElm, statusbarElm) {
+            statusbarElm.appendChild(poweredByElm);
+            setupReposition(editor, poweredByElm, true);
+        };
 
-    var appendToContainer = function (editor, poweredByElm) {
-      editor.getContainer().appendChild(poweredByElm);
-      setupReposition(editor, poweredByElm, false);
-    };
+        var appendToContainer = function (editor, poweredByElm) {
+            editor.getContainer().appendChild(poweredByElm);
+            setupReposition(editor, poweredByElm, false);
+        };
 
-    var setupEventListeners = function (editor) {
-      editor.on('SkinLoaded', function () {
-        var poweredByElm = DOM.create('div', { 'class': 'mce-branding-powered-by' });
-        var statusbarElm = editor.getContainer().querySelector('.mce-statusbar');
+        var setupEventListeners = function (editor) {
+            editor.on('SkinLoaded', function () {
+                var poweredByElm = DOM.create('div', {'class': 'mce-branding-powered-by'});
+                var statusbarElm = editor.getContainer().querySelector('.mce-statusbar');
 
-        if (statusbarElm) {
-          appendToStatusbar(editor, poweredByElm, statusbarElm);
-        } else {
-          appendToContainer(editor, poweredByElm);
-        }
+                if (statusbarElm) {
+                    appendToStatusbar(editor, poweredByElm, statusbarElm);
+                } else {
+                    appendToContainer(editor, poweredByElm);
+                }
 
-        DOM.bind(poweredByElm, 'click', hide(poweredByElm));
-      });
-    };
+                DOM.bind(poweredByElm, 'click', hide(poweredByElm));
+            });
+        };
 
-    var setup = function (editor) {
-      if (editor.settings.branding !== false) {
-        setupEventListeners(editor);
-      }
-    };
+        var setup = function (editor) {
+            if (editor.settings.branding !== false) {
+                setupEventListeners(editor);
+            }
+        };
 
-    return {
-      setup: setup
-    };
-  }
+        return {
+            setup: setup
+        };
+    }
 );

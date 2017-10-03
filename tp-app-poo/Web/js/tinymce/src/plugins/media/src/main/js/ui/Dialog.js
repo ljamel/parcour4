@@ -9,236 +9,248 @@
  */
 
 define(
-  'tinymce.plugins.media.ui.Dialog',
-  [
-    'tinymce.core.util.Delay',
-    'tinymce.plugins.media.core.HtmlToData',
-    'tinymce.plugins.media.core.UpdateHtml',
-    'tinymce.plugins.media.core.Service',
-    'tinymce.plugins.media.core.Size',
-    'tinymce.core.util.Tools',
-    'tinymce.core.Env',
-    'tinymce.plugins.media.ui.SizeManager'
-  ],
-  function (Delay, HtmlToData, UpdateHtml, Service, Size, Tools, Env, SizeManager) {
-    var embedChange = (Env.ie && Env.ie <= 8) ? 'onChange' : 'onInput';
+    'tinymce.plugins.media.ui.Dialog',
+    [
+        'tinymce.core.util.Delay',
+        'tinymce.plugins.media.core.HtmlToData',
+        'tinymce.plugins.media.core.UpdateHtml',
+        'tinymce.plugins.media.core.Service',
+        'tinymce.plugins.media.core.Size',
+        'tinymce.core.util.Tools',
+        'tinymce.core.Env',
+        'tinymce.plugins.media.ui.SizeManager'
+    ],
+    function (Delay, HtmlToData, UpdateHtml, Service, Size, Tools, Env, SizeManager) {
+        var embedChange = (Env.ie && Env.ie <= 8) ? 'onChange' : 'onInput';
 
-    var handleError = function (editor) {
-      return function (error) {
-        var errorMessage = error && error.msg ?
-          'Media embed handler error: ' + error.msg :
-          'Media embed handler threw unknown error.';
-        editor.notificationManager.open({ type: 'error', text: errorMessage });
-      };
-    };
-
-    var getData = function (editor) {
-      var element = editor.selection.getNode();
-      var dataEmbed = element.getAttribute('data-ephox-embed-iri');
-
-      if (dataEmbed) {
-        return {
-          source1: dataEmbed,
-          'data-ephox-embed-iri': dataEmbed,
-          width: Size.getMaxWidth(element),
-          height: Size.getMaxHeight(element)
+        var handleError = function (editor) {
+            return function (error) {
+                var errorMessage = error && error.msg ?
+                    'Media embed handler error: ' + error.msg :
+                    'Media embed handler threw unknown error.';
+                editor.notificationManager.open({type: 'error', text: errorMessage});
+            };
         };
-      }
 
-      return element.getAttribute('data-mce-object') ?
-        HtmlToData.htmlToData(editor.settings.media_scripts, editor.serializer.serialize(element, { selection: true })) :
-        {};
-    };
+        var getData = function (editor) {
+            var element = editor.selection.getNode();
+            var dataEmbed = element.getAttribute('data-ephox-embed-iri');
 
-    var getSource = function (editor) {
-      var elm = editor.selection.getNode();
+            if (dataEmbed) {
+                return {
+                    source1: dataEmbed,
+                    'data-ephox-embed-iri': dataEmbed,
+                    width: Size.getMaxWidth(element),
+                    height: Size.getMaxHeight(element)
+                };
+            }
 
-      if (elm.getAttribute('data-mce-object') || elm.getAttribute('data-ephox-embed-iri')) {
-        return editor.selection.getContent();
-      }
-    };
+            return element.getAttribute('data-mce-object') ?
+                HtmlToData.htmlToData(editor.settings.media_scripts, editor.serializer.serialize(element, {selection: true})) :
+                {};
+        };
 
-    var addEmbedHtml = function (win, editor) {
-      return function (response) {
-        var html = response.html;
-        var embed = win.find('#embed')[0];
-        var data = Tools.extend(HtmlToData.htmlToData(editor.settings.media_scripts, html), { source1: response.url });
-        win.fromJSON(data);
+        var getSource = function (editor) {
+            var elm = editor.selection.getNode();
 
-        if (embed) {
-          embed.value(html);
-          SizeManager.updateSize(win);
-        }
-      };
-    };
+            if (elm.getAttribute('data-mce-object') || elm.getAttribute('data-ephox-embed-iri')) {
+                return editor.selection.getContent();
+            }
+        };
 
-    var selectPlaceholder = function (editor, beforeObjects) {
-      var i;
-      var y;
-      var afterObjects = editor.dom.select('img[data-mce-object]');
+        var addEmbedHtml = function (win, editor) {
+            return function (response) {
+                var html = response.html;
+                var embed = win.find('#embed')[0];
+                var data = Tools.extend(HtmlToData.htmlToData(editor.settings.media_scripts, html), {source1: response.url});
+                win.fromJSON(data);
 
-      // Find new image placeholder so we can select it
-      for (i = 0; i < beforeObjects.length; i++) {
-        for (y = afterObjects.length - 1; y >= 0; y--) {
-          if (beforeObjects[i] === afterObjects[y]) {
-            afterObjects.splice(y, 1);
-          }
-        }
-      }
+                if (embed) {
+                    embed.value(html);
+                    SizeManager.updateSize(win);
+                }
+            };
+        };
 
-      editor.selection.select(afterObjects[0]);
-    };
+        var selectPlaceholder = function (editor, beforeObjects) {
+            var i;
+            var y;
+            var afterObjects = editor.dom.select('img[data-mce-object]');
 
-    var handleInsert = function (editor, html) {
-      var beforeObjects = editor.dom.select('img[data-mce-object]');
+            // Find new image placeholder so we can select it
+            for (i = 0; i < beforeObjects.length; i++) {
+                for (y = afterObjects.length - 1; y >= 0; y--) {
+                    if (beforeObjects[i] === afterObjects[y]) {
+                        afterObjects.splice(y, 1);
+                    }
+                }
+            }
 
-      editor.insertContent(html);
-      selectPlaceholder(editor, beforeObjects);
-      editor.nodeChanged();
-    };
+            editor.selection.select(afterObjects[0]);
+        };
 
-    var submitForm = function (win, editor) {
-      var data = win.toJSON();
+        var handleInsert = function (editor, html) {
+            var beforeObjects = editor.dom.select('img[data-mce-object]');
 
-      data.embed = UpdateHtml.updateHtml(data.embed, data);
+            editor.insertContent(html);
+            selectPlaceholder(editor, beforeObjects);
+            editor.nodeChanged();
+        };
 
-      if (data.embed) {
-        handleInsert(editor, data.embed);
-      } else {
-        Service.getEmbedHtml(editor, data)
-          .then(function (response) {
-            handleInsert(editor, response.html);
-          })["catch"](handleError(editor));
-      }
-    };
+        var submitForm = function (win, editor) {
+            var data = win.toJSON();
 
-    var populateMeta = function (win, meta) {
-      Tools.each(meta, function (value, key) {
-        win.find('#' + key).value(value);
-      });
-    };
+            data.embed = UpdateHtml.updateHtml(data.embed, data);
 
-    var showDialog = function (editor) {
-      var win;
-      var data;
+            if (data.embed) {
+                handleInsert(editor, data.embed);
+            } else {
+                Service.getEmbedHtml(editor, data)
+                    .then(function (response) {
+                        handleInsert(editor, response.html);
+                    })["catch"](handleError(editor));
+            }
+        };
 
-      var generalFormItems = [
-        {
-          name: 'source1',
-          type: 'filepicker',
-          filetype: 'media',
-          size: 40,
-          autofocus: true,
-          label: 'Source',
-          onpaste: function () {
-            setTimeout(function () {
-              Service.getEmbedHtml(editor, win.toJSON())
-                .then(
-                addEmbedHtml(win, editor)
-                )["catch"](handleError(editor));
-            }, 1);
-          },
-          onchange: function (e) {
-            Service.getEmbedHtml(editor, win.toJSON())
-              .then(
-              addEmbedHtml(win, editor)
-              )["catch"](handleError(editor));
+        var populateMeta = function (win, meta) {
+            Tools.each(meta, function (value, key) {
+                win.find('#' + key).value(value);
+            });
+        };
 
-            populateMeta(win, e.meta);
-          },
-          onbeforecall: function (e) {
-            e.meta = win.toJSON();
-          }
-        }
-      ];
+        var showDialog = function (editor) {
+            var win;
+            var data;
 
-      var advancedFormItems = [];
+            var generalFormItems = [
+                {
+                    name: 'source1',
+                    type: 'filepicker',
+                    filetype: 'media',
+                    size: 40,
+                    autofocus: true,
+                    label: 'Source',
+                    onpaste: function () {
+                        setTimeout(function () {
+                            Service.getEmbedHtml(editor, win.toJSON())
+                                .then(
+                                    addEmbedHtml(win, editor)
+                                )["catch"](handleError(editor));
+                        }, 1);
+                    },
+                    onchange: function (e) {
+                        Service.getEmbedHtml(editor, win.toJSON())
+                            .then(
+                                addEmbedHtml(win, editor)
+                            )["catch"](handleError(editor));
 
-      var reserialise = function (update) {
-        update(win);
-        data = win.toJSON();
-        win.find('#embed').value(UpdateHtml.updateHtml(data.embed, data));
-      };
+                        populateMeta(win, e.meta);
+                    },
+                    onbeforecall: function (e) {
+                        e.meta = win.toJSON();
+                    }
+                }
+            ];
 
-      if (editor.settings.media_alt_source !== false) {
-        advancedFormItems.push({ name: 'source2', type: 'filepicker', filetype: 'media', size: 40, label: 'Alternative source' });
-      }
+            var advancedFormItems = [];
 
-      if (editor.settings.media_poster !== false) {
-        advancedFormItems.push({ name: 'poster', type: 'filepicker', filetype: 'image', size: 40, label: 'Poster' });
-      }
+            var reserialise = function (update) {
+                update(win);
+                data = win.toJSON();
+                win.find('#embed').value(UpdateHtml.updateHtml(data.embed, data));
+            };
 
-      if (editor.settings.media_dimensions !== false) {
-        var control = SizeManager.createUi(reserialise);
-        generalFormItems.push(control);
-      }
+            if (editor.settings.media_alt_source !== false) {
+                advancedFormItems.push({
+                    name: 'source2',
+                    type: 'filepicker',
+                    filetype: 'media',
+                    size: 40,
+                    label: 'Alternative source'
+                });
+            }
 
-      data = getData(editor);
+            if (editor.settings.media_poster !== false) {
+                advancedFormItems.push({
+                    name: 'poster',
+                    type: 'filepicker',
+                    filetype: 'image',
+                    size: 40,
+                    label: 'Poster'
+                });
+            }
 
-      var embedTextBox = {
-        id: 'mcemediasource',
-        type: 'textbox',
-        flex: 1,
-        name: 'embed',
-        value: getSource(editor),
-        multiline: true,
-        rows: 5,
-        label: 'Source'
-      };
+            if (editor.settings.media_dimensions !== false) {
+                var control = SizeManager.createUi(reserialise);
+                generalFormItems.push(control);
+            }
 
-      var updateValueOnChange = function () {
-        data = Tools.extend({}, HtmlToData.htmlToData(editor.settings.media_scripts, this.value()));
-        this.parent().parent().fromJSON(data);
-      };
+            data = getData(editor);
 
-      embedTextBox[embedChange] = updateValueOnChange;
+            var embedTextBox = {
+                id: 'mcemediasource',
+                type: 'textbox',
+                flex: 1,
+                name: 'embed',
+                value: getSource(editor),
+                multiline: true,
+                rows: 5,
+                label: 'Source'
+            };
 
-      win = editor.windowManager.open({
-        title: 'Insert/edit media',
-        data: data,
-        bodyType: 'tabpanel',
-        body: [
-          {
-            title: 'General',
-            type: "form",
-            items: generalFormItems
-          },
+            var updateValueOnChange = function () {
+                data = Tools.extend({}, HtmlToData.htmlToData(editor.settings.media_scripts, this.value()));
+                this.parent().parent().fromJSON(data);
+            };
 
-          {
-            title: 'Embed',
-            type: "container",
-            layout: 'flex',
-            direction: 'column',
-            align: 'stretch',
-            padding: 10,
-            spacing: 10,
-            items: [
-              {
-                type: 'label',
-                text: 'Paste your embed code below:',
-                forId: 'mcemediasource'
-              },
-              embedTextBox
-            ]
-          },
+            embedTextBox[embedChange] = updateValueOnChange;
 
-          {
-            title: 'Advanced',
-            type: "form",
-            items: advancedFormItems
-          }
-        ],
-        onSubmit: function () {
-          SizeManager.updateSize(win);
-          submitForm(win, editor);
-        }
-      });
+            win = editor.windowManager.open({
+                title: 'Insert/edit media',
+                data: data,
+                bodyType: 'tabpanel',
+                body: [
+                    {
+                        title: 'General',
+                        type: "form",
+                        items: generalFormItems
+                    },
 
-      SizeManager.syncSize(win);
-    };
+                    {
+                        title: 'Embed',
+                        type: "container",
+                        layout: 'flex',
+                        direction: 'column',
+                        align: 'stretch',
+                        padding: 10,
+                        spacing: 10,
+                        items: [
+                            {
+                                type: 'label',
+                                text: 'Paste your embed code below:',
+                                forId: 'mcemediasource'
+                            },
+                            embedTextBox
+                        ]
+                    },
 
-    return {
-      showDialog: showDialog
-    };
-  }
+                    {
+                        title: 'Advanced',
+                        type: "form",
+                        items: advancedFormItems
+                    }
+                ],
+                onSubmit: function () {
+                    SizeManager.updateSize(win);
+                    submitForm(win, editor);
+                }
+            });
+
+            SizeManager.syncSize(win);
+        };
+
+        return {
+            showDialog: showDialog
+        };
+    }
 );

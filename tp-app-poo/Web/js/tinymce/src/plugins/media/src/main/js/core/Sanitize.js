@@ -9,74 +9,74 @@
  */
 
 define(
-  'tinymce.plugins.media.core.Sanitize',
-  [
-    'tinymce.core.util.Tools',
-    'tinymce.core.html.Writer',
-    'tinymce.core.html.SaxParser',
-    'tinymce.core.html.Schema'
-  ],
-  function (Tools, Writer, SaxParser, Schema) {
-    var sanitize = function (editor, html) {
-      if (editor.settings.media_filter_html === false) {
-        return html;
-      }
-
-      var writer = new Writer();
-      var blocked;
-
-      new SaxParser({
-        validate: false,
-        allow_conditional_comments: false,
-        special: 'script,noscript',
-
-        comment: function (text) {
-          writer.comment(text);
-        },
-
-        cdata: function (text) {
-          writer.cdata(text);
-        },
-
-        text: function (text, raw) {
-          writer.text(text, raw);
-        },
-
-        start: function (name, attrs, empty) {
-          blocked = true;
-
-          if (name === 'script' || name === 'noscript') {
-            return;
-          }
-
-          for (var i = 0; i < attrs.length; i++) {
-            if (attrs[i].name.indexOf('on') === 0) {
-              return;
+    'tinymce.plugins.media.core.Sanitize',
+    [
+        'tinymce.core.util.Tools',
+        'tinymce.core.html.Writer',
+        'tinymce.core.html.SaxParser',
+        'tinymce.core.html.Schema'
+    ],
+    function (Tools, Writer, SaxParser, Schema) {
+        var sanitize = function (editor, html) {
+            if (editor.settings.media_filter_html === false) {
+                return html;
             }
 
-            if (attrs[i].name === 'style') {
-              attrs[i].value = editor.dom.serializeStyle(editor.dom.parseStyle(attrs[i].value), name);
-            }
-          }
+            var writer = new Writer();
+            var blocked;
 
-          writer.start(name, attrs, empty);
-          blocked = false;
-        },
+            new SaxParser({
+                validate: false,
+                allow_conditional_comments: false,
+                special: 'script,noscript',
 
-        end: function (name) {
-          if (blocked) {
-            return;
-          }
+                comment: function (text) {
+                    writer.comment(text);
+                },
 
-          writer.end(name);
-        }
-      }, new Schema({})).parse(html);
+                cdata: function (text) {
+                    writer.cdata(text);
+                },
 
-      return writer.getContent();
-    };
+                text: function (text, raw) {
+                    writer.text(text, raw);
+                },
 
-    return {
-      sanitize: sanitize
-    };
-  }
+                start: function (name, attrs, empty) {
+                    blocked = true;
+
+                    if (name === 'script' || name === 'noscript') {
+                        return;
+                    }
+
+                    for (var i = 0; i < attrs.length; i++) {
+                        if (attrs[i].name.indexOf('on') === 0) {
+                            return;
+                        }
+
+                        if (attrs[i].name === 'style') {
+                            attrs[i].value = editor.dom.serializeStyle(editor.dom.parseStyle(attrs[i].value), name);
+                        }
+                    }
+
+                    writer.start(name, attrs, empty);
+                    blocked = false;
+                },
+
+                end: function (name) {
+                    if (blocked) {
+                        return;
+                    }
+
+                    writer.end(name);
+                }
+            }, new Schema({})).parse(html);
+
+            return writer.getContent();
+        };
+
+        return {
+            sanitize: sanitize
+        };
+    }
 );

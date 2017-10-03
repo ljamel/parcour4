@@ -15,27 +15,26 @@
  * @private
  */
 define(
-  'tinymce.core.util.Uuid',
-  [
-  ],
-  function () {
-    var count = 0;
+    'tinymce.core.util.Uuid',
+    [],
+    function () {
+        var count = 0;
 
-    var seed = function () {
-      var rnd = function () {
-        return Math.round(Math.random() * 0xFFFFFFFF).toString(36);
-      };
+        var seed = function () {
+            var rnd = function () {
+                return Math.round(Math.random() * 0xFFFFFFFF).toString(36);
+            };
 
-      var now = new Date().getTime();
-      return 's' + now.toString(36) + rnd() + rnd() + rnd();
-    };
+            var now = new Date().getTime();
+            return 's' + now.toString(36) + rnd() + rnd() + rnd();
+        };
 
-    var uuid = function (prefix) {
-      return prefix + (count++) + seed();
-    };
+        var uuid = function (prefix) {
+            return prefix + (count++) + seed();
+        };
 
-    return {
-      uuid: uuid
-    };
-  }
+        return {
+            uuid: uuid
+        };
+    }
 );
