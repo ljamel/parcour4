@@ -4,14 +4,9 @@
     <list default="true" id="d6161df3-f51a-4ba5-9109-5c30c72624dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Architecture MVC.docx" afterPath="$PROJECT_DIR$/Architecture MVC.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/NewsController.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/NewsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/update.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/update.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/NewsController.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/NewsController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/show.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/show.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php" afterPath="$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/Web/css/index.css" afterPath="$PROJECT_DIR$/tp-app-poo/Web/css/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/Web/css/plume.css" afterPath="$PROJECT_DIR$/tp-app-poo/Web/css/plume.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tp-app-poo/Web/css/show.css" afterPath="$PROJECT_DIR$/tp-app-poo/Web/css/show.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -97,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/NewsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-640">
+            <state relative-caret-position="-572">
               <caret line="105" column="21" lean-forward="false" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
               <folding>
                 <element signature="e#43#68#0#PHP" expanded="true" />
@@ -112,8 +107,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="52" column="75" lean-forward="true" selection-start-line="52" selection-start-column="75" selection-end-line="52" selection-end-column="75" />
+            <state relative-caret-position="135">
+              <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#2;n#!!top" expanded="true" />
@@ -143,8 +138,18 @@
       <file leaf-file-name="plume.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tp-app-poo/Web/css/plume.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
+            <state relative-caret-position="135">
+              <caret line="5" column="45" lean-forward="false" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tp-app-poo/Web/css/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -241,7 +246,6 @@
         <option value="$PROJECT_DIR$/tp-app-poo/Web/css/backend.css" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/index.php" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/Connexion/Views/index.php" />
-        <option value="$PROJECT_DIR$/tp-app-poo/Web/css/index.css" />
         <option value="$PROJECT_DIR$/tp-app-poo/Web/js/javascript.js" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/contacte.php" />
         <option value="$PROJECT_DIR$/tp-app-poo/Web/.htaccess" />
@@ -252,12 +256,13 @@
         <option value="$PROJECT_DIR$/tp-app-poo/lib/blog/PDOFactory.php" />
         <option value="$PROJECT_DIR$/../portfolio/assets/js/main.js" />
         <option value="$PROJECT_DIR$/tp-app-poo/Web/css/show.css" />
-        <option value="$PROJECT_DIR$/tp-app-poo/Web/css/plume.css" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php" />
-        <option value="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/show.php" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/Views/update.php" />
         <option value="$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/NewsController.php" />
+        <option value="$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php" />
+        <option value="$PROJECT_DIR$/tp-app-poo/Web/css/plume.css" />
+        <option value="$PROJECT_DIR$/tp-app-poo/Web/css/index.css" />
       </list>
     </option>
   </component>
@@ -477,12 +482,12 @@
       <workItem from="1505293518590" duration="42895000" />
       <workItem from="1505980325816" duration="3085000" />
       <workItem from="1506694301689" duration="80000" />
-      <workItem from="1506936554343" duration="10666000" />
+      <workItem from="1506936554343" duration="12514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="192094000" />
+    <option name="totallyTimeSpent" value="193942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -739,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp-app-poo/Web/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/bio.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -911,35 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tp-app-poo/Web/css/plume.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="108" column="12" lean-forward="false" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="29" column="92" lean-forward="false" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
-          <folding>
-            <marker date="1506971856031" expanded="true" signature="3270:3289" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="52" column="75" lean-forward="true" selection-start-line="52" selection-start-column="75" selection-end-line="52" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/show.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -958,11 +927,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Backend/Modules/News/NewsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-640">
+        <state relative-caret-position="-572">
           <caret line="105" column="21" lean-forward="false" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
           <folding>
             <element signature="e#43#68#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Templates/layout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="29" column="92" lean-forward="false" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
+          <folding>
+            <marker date="1506971856031" expanded="true" signature="3270:3289" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-app-poo/App/Frontend/Modules/News/Views/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-app-poo/Web/css/plume.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="45" lean-forward="false" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tp-app-poo/Web/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="13" column="43" lean-forward="false" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

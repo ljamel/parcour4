@@ -24,7 +24,7 @@ foreach ($listeNews as $key => $news)
 }
 ?>
 
-        <h2>Si dessous les 5 derniers articles postés</h2>
+        <h2>Si dessous les 5 derniers billets postés</h2>
 	</div>
 
 <div class="wrap">
@@ -50,7 +50,7 @@ foreach ($listeNews as $key => $news)
                 <?php } ?>
                 <?= htmlspecialchars_decode($news['contenu']) ?>
 
-                <a href=""> </a>...<span style="background-color: #FFFFFF;"><span style="color: #000000;"><br /> <!-- Pour que le lien "suite" ne soit pas casser a cause de tynimce -->
+                <a href=""> </a>...<span style="background-color: #FFFFFF;"><span style="color: #000000;"><br /><br /> <!-- Pour que le lien "suite" ne soit pas casser a cause de tynimce -->
                 <a href="news-<?= $news['id'] ?>.html">Lire la suite </a>
                 <?php if ($user->isAuthenticated()) { ?><br />
                     <br /><a href="admin/news-update-<?= $news['id'] ?>.html"> <strong>Modifier</strong> </a>
